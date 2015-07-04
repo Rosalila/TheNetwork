@@ -1,0 +1,2 @@
+module AssetCommentsHelper
+end

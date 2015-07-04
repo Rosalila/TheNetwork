@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Compenent:</strong>
+  <%= @component_comment.compenent_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @component_comment.user_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @component_comment.comment %>
+</p>
+
+<%= link_to 'Edit', edit_component_comment_path(@component_comment) %> |
+<%= link_to 'Back', component_comments_path %>

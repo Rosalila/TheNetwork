@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Engine:</strong>
+  <%= @engine_rating.engine_id %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @engine_rating.rating %>
+</p>
+
+<%= link_to 'Edit', edit_engine_rating_path(@engine_rating) %> |
+<%= link_to 'Back', engine_ratings_path %>

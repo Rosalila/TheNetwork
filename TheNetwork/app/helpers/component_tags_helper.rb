@@ -1,0 +1,2 @@
+module ComponentTagsHelper
+end
