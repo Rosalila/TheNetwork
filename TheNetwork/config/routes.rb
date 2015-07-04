@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'home#index'
+
   resources :tags
   resources :asset_tags
   resources :component_tags
