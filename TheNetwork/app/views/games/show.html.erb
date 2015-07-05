@@ -1,70 +1,4 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Engine:</strong>
-  <%= @game.engine.name %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @game.name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @game.image %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @game.description %>
-</p>
-
-<p>
-  <strong>License:</strong>
-  <%= @game.license.name %>
-</p>
-
-<p>
-  <strong>Comments:</strong>
-  <br/>
-  <% @game.game_comments.each do |comment| %>
-    <%= comment.comment %>
-    <br/>
-  <% end %>
-</p>
-
-<p>
-  <strong>Ratings:</strong>
-  <br/>
-  <% @game.game_ratings.each do |rating| %>
-    <%= rating.rating %>
-    <br/>
-  <% end %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <br/>
-  <% @game.game_tags.each do |tag| %>
-    <%= tag.tag.name %>
-    <br/>
-  <% end %>
-</p>
-
-<p>
-  <strong>Components:</strong>
-  <br/>
-  <% @game.components.each do |component| %>
-    <%= component.description %>
-    <br/>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
-
-<section id="main-content">
           <section class="wrapper site-min-height">
             <h3><i class="fa fa-angle-right"></i> Information</h3>
             <hr>
@@ -173,4 +107,3 @@
         <!-- Information Here -->
 
         </section><! --/wrapper -->
-      </section><!-- /MAIN CONTENT -->
