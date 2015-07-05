@@ -2,7 +2,7 @@
 
 <p>
   <strong>Engine:</strong>
-  <%= @game.engine_id %>
+  <%= @game.engine.name %>
 </p>
 
 <p>
@@ -22,7 +22,43 @@
 
 <p>
   <strong>License:</strong>
-  <%= @game.license_id %>
+  <%= @game.license.name %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <br/>
+  <% @game.game_comments.each do |comment| %>
+    <%= comment.comment %>
+    <br/>
+  <% end %>
+</p>
+
+<p>
+  <strong>Ratings:</strong>
+  <br/>
+  <% @game.game_ratings.each do |rating| %>
+    <%= rating.rating %>
+    <br/>
+  <% end %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <br/>
+  <% @game.game_tags.each do |tag| %>
+    <%= tag.tag.name %>
+    <br/>
+  <% end %>
+</p>
+
+<p>
+  <strong>Components:</strong>
+  <br/>
+  <% @game.components.each do |component| %>
+    <%= component.description %>
+    <br/>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
