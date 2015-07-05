@@ -1,0 +1,19 @@
+<h3>User</h3>
+<p>Id: <%= @user.id if @user.id %></p>
+<p>Email: <%= @user.email if @user.email %></p>
+
+<p><%client = DogecoinClient.new%></p>
+
+<%if client.valid?%>
+  <p><%=client.get_balance("network_"+@user.id.to_s)%></p>
+  <p><%=client.get_account_address("network_"+@user.id.to_s)%></p>
+  <p><img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=Hello%20world&choe=UTF-8"/></p>
+<%else%>
+  <p>so server very dow</p>
+<%end%>
+
+<p>My assets</p>
+<%@user.credits.each do |credit|%>
+  <a href="/resources/<%=credit.resource.id%>"><%=credit.resource.name%></a>
+  <br/>
+<%end%>
