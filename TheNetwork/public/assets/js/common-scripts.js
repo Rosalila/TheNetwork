@@ -12,9 +12,8 @@ $(function() {
 //        cookie: 'dcjq-accordion-1',
         classExpand: 'dcjq-current-parent'
     });
-
-    $('#Container').mixItUp();
 });
+
 
 var Script = function () {
 
