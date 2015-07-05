@@ -3,6 +3,13 @@ class ComponentsController < ApplicationController
 
   # GET /components
   # GET /components.json
+  def finish
+    otro = Component.find(params[:id])
+    otro.finish = !otro.finish
+    otro.save
+    redirect_to :back
+  end
+
   def index
     @components = Component.all
   end
@@ -27,7 +34,7 @@ class ComponentsController < ApplicationController
     @component = Component.new(component_params)
 
     @component.image = params[:image]
-	@component.finish = false
+#	@component.finish = false
 
     respond_to do |format|
       if @component.save

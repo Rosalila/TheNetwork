@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'finish/:id' => 'components#finish'
   resources :resource_tags
   resources :resource_comments
   resources :resource_ratings
