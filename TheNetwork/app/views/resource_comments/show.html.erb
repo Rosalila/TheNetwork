@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resource:</strong>
+  <%= @resource_comment.resource_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @resource_comment.user_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @resource_comment.comment %>
+</p>
+
+<%= link_to 'Edit', edit_resource_comment_path(@resource_comment) %> |
+<%= link_to 'Back', resource_comments_path %>

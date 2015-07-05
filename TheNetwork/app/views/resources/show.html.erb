@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @resource.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @resource.image %>
+</p>
+
+<p>
+  <strong>Component:</strong>
+  <%= @resource.component_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @resource.category_id %>
+</p>
+
+<p>
+  <strong>Download:</strong>
+  <%= @resource.download %>
+</p>
+
+<p>
+  <strong>License:</strong>
+  <%= @resource.license_id %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @resource.video %>
+</p>
+
+<%= link_to 'Edit', edit_resource_path(@resource) %> |
+<%= link_to 'Back', resources_path %>
