@@ -4,7 +4,7 @@ class CreateAssets < ActiveRecord::Migration
       t.integer :component_id
       t.integer :category_id
       t.string :download
-      t.string :license_id
+      t.integer :license_id
 
       t.timestamps null: false
     end

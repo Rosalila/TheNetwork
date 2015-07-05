@@ -49,20 +49,15 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-         <%= yield %>
+         <section class="wrapper">
+           <%= yield %>
+          </section>
       </section>
      <!-- /MAIN CONTENT -->
     
       <!--main content end-->
       <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              2014 - Alvarez.is
-              <a href="blank.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
+    <%= render "layouts/footer" %>
       <!--footer end-->
   </section>
 

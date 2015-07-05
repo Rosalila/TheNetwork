@@ -26,6 +26,8 @@ class EnginesController < ApplicationController
   def create
     @engine = Engine.new(engine_params)
 
+    @engine.image = params[:image]
+
     respond_to do |format|
       if @engine.save
         format.html { redirect_to @engine, notice: 'Engine was successfully created.' }
