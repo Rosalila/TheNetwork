@@ -8,7 +8,7 @@
                 <% if devise_mapping.rememberable? -%>
                   <div class="field">
                     <%= f.check_box :remember_me %>
-                    <%= f.label :remember_me %>
+              <%= f.label :remember_me %>
                   </div>
                 <% end %>
 
@@ -23,14 +23,10 @@
 		            
 		            <div class="login-social-link centered">
 		            <p>or you can sign in via your social network</p>
-		                <button class="btn btn-facebook" href="<%= url_for(user_omniauth_authorize_path(:facebook)) %>">
-                      <i class="fa fa-facebook"></i> Facebook</button>
-		                <!--<button class="btn btn-twitter" type="submit" href="<%= url_for(user_omniauth_authorize_path(:google_oauth2)) %>">
-                      <i class="fa fa-twitter"></i> Google</button>-->
                     <%= link_to(user_omniauth_authorize_path(:facebook), class: "btn btn-facebook" ) do %>
                        <i class="fa fa-facebook"></i> Facebook
                     <% end %>
-                    <%= link_to(user_omniauth_authorize_path(:google_oauth2), class: "btn btn-google" ) do %>
+                    <%= link_to(user_omniauth_authorize_path(:google_oauth2), class: "btn btn-twitter" ) do %>
                        <i class="fa fa-google"></i> Google
                     <% end %>
 		            </div>
