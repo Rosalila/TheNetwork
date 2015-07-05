@@ -342,3 +342,1348 @@ Processing by EnginesController#index as HTML
   Rendered layouts/_sidebar.html.erb (0.9ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 1.0ms)
+  [1m[36m (137.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (98.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEngines (20150704225601)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "engines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "image" varchar, "description" text, "license_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704225601"]]
+  [1m[35m (95.4ms)[0m  commit transaction
+Migrating to CreateGames (20150704225710)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "engine_id" integer, "name" varchar, "image" varchar, "description" text, "license_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704225710"]]
+  [1m[35m (95.3ms)[0m  commit transaction
+Migrating to CreateComponents (20150704230536)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "components" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "image" varchar, "description" text, "license_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230536"]]
+  [1m[35m (95.7ms)[0m  commit transaction
+Migrating to CreateAssets (20150704230555)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "category_id" integer, "download" varchar, "license_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230555"]]
+  [1m[35m (84.8ms)[0m  commit transaction
+Migrating to CreateIncentives (20150704230613)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "incentives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asset_id" integer, "user_id" integer, "amount" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230613"]]
+  [1m[35m (96.2ms)[0m  commit transaction
+Migrating to CreateCredits (20150704230625)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "credits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "asset_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230625"]]
+  [1m[35m (97.9ms)[0m  commit transaction
+Migrating to CreateCategories (20150704230750)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230750"]]
+  [1m[35m (95.8ms)[0m  commit transaction
+Migrating to CreateLicenses (20150704230837)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "licenses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "website" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230837"]]
+  [1m[35m (95.6ms)[0m  commit transaction
+Migrating to CreateComponentInGames (20150704230848)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "component_in_games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230848"]]
+  [1m[35m (95.6ms)[0m  commit transaction
+Migrating to CreateEngineRatings (20150704230859)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "engine_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "engine_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230859"]]
+  [1m[35m (96.3ms)[0m  commit transaction
+Migrating to CreateGameRatings (20150704230907)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "game_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "game_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230907"]]
+  [1m[35m (116.1ms)[0m  commit transaction
+Migrating to CreateComponentRatings (20150704230914)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "component_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230914"]]
+  [1m[35m (96.0ms)[0m  commit transaction
+Migrating to CreateEngineComments (20150704230929)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "engine_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "engine_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230929"]]
+  [1m[35m (84.2ms)[0m  commit transaction
+Migrating to CreateGameComments (20150704230940)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "game_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "game_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230940"]]
+  [1m[35m (173.2ms)[0m  commit transaction
+Migrating to CreateAssetComments (20150704231015)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "asset_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asset_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231015"]]
+  [1m[35m (86.4ms)[0m  commit transaction
+Migrating to CreateEngineTags (20150704231109)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "engine_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "engine_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231109"]]
+  [1m[35m (74.4ms)[0m  commit transaction
+Migrating to CreateGameTags (20150704231117)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "game_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "game_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231117"]]
+  [1m[35m (95.6ms)[0m  commit transaction
+Migrating to CreateComponentTags (20150704231124)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "component_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231124"]]
+  [1m[35m (104.0ms)[0m  commit transaction
+Migrating to CreateAssetTags (20150704231131)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "asset_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asset_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231131"]]
+  [1m[35m (117.2ms)[0m  commit transaction
+Migrating to CreateTags (20150704231137)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231137"]]
+  [1m[35m (96.6ms)[0m  commit transaction
+Migrating to DeviseCreateUsers (20150704233605)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150704233605"]]
+  [1m[36m (90.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddColumnsToUsers (20150704233639)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "provider" varchar[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "uid" varchar
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704233639"]]
+  [1m[35m (82.5ms)[0m  commit transaction
+Migrating to AddEngineIdToComponent (20150705002324)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "components" ADD "engine_id" integer
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150705002324"]]
+  [1m[35m (118.3ms)[0m  commit transaction
+Migrating to AddNameToAsset (20150705021946)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "assets" ADD "name" varchar
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150705021946"]]
+  [1m[35m (87.1ms)[0m  commit transaction
+Migrating to CreateAssetRatings (20150705025248)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "asset_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asset_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150705025248"]]
+  [1m[35m (95.3ms)[0m  commit transaction
+Migrating to CreateComponentComments (20150705033933)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "component_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150705033933"]]
+  [1m[35m (94.9ms)[0m  commit transaction
+Migrating to RemoveNameFromTag (20150705035843)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "atags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "tags"[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "tags"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "atags"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "atags"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705035843"]]
+  [1m[36m (102.2ms)[0m  [1mcommit transaction[0m
+Migrating to AddNameToTag (20150705035911)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "tags" ADD "name" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705035911"]]
+  [1m[36m (184.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResources (20150705094326)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "resources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "image" varchar, "component_id" integer, "category_id" integer, "download" varchar, "license_id" integer, "video" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705094326"]]
+  [1m[36m (127.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResourceRatings (20150705094335)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "resource_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705094335"]]
+  [1m[36m (74.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResourceComments (20150705094352)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "resource_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705094352"]]
+  [1m[36m (117.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResourceTags (20150705094401)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "resource_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705094401"]]
+  [1m[36m (83.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 05:28:57 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 401 Unauthorized in 39ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-05 05:28:57 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (39.0ms)
+Completed 200 OK in 86ms (Views: 52.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-07-05 05:29:04 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pubWBJHRYrWVkSelX0NV9ELpVEhtEI+eXFg7/8nq34px0ljud2v/dz8iDnjNa28RZfCAQnf1O83LoR1/I+TNmw==", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "a@a.com"]]
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.3ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pubWBJHRYrWVkSelX0NV9ELpVEhtEI+eXFg7/8nq34px0ljud2v/dz8iDnjNa28RZfCAQnf1O83LoR1/I+TNmw==", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  Rendered devise/sessions/new.html.erb within layouts/devise (3.9ms)
+Completed 200 OK in 163ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-07-05 05:29:14 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"he2KXanVRNwGtYVhtg9DvfVYk/MFnZHB+LZoSH++oA1S2QS3T2/ZHqwGrLwkJ3lY0kFH+R94JZJvT07IlbCyHA==", "user"=>{"email"=>"kenystev@rockstar.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "kenystev@rockstar.com"]]
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"he2KXanVRNwGtYVhtg9DvfVYk/MFnZHB+LZoSH++oA1S2QS3T2/ZHqwGrLwkJ3lY0kFH+R94JZJvT07IlbCyHA==", "user"=>{"email"=>"kenystev@rockstar.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  Rendered devise/sessions/new.html.erb within layouts/devise (3.4ms)
+Completed 200 OK in 168ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-05 05:29:29 -0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/devise (3.5ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-07-05 05:29:40 -0600
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eVDycgz3xyCBS+4ghkDuKoMIEKS79VJLU9pN+qQIBuauZHyY6k1a4iv4x/0UaNTPpBHErqEQ5hjEI2t6TgYU9w==", "user"=>{"email"=>"kenystev@rockstar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kenystev@rockstar.com' LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "kenystev@rockstar.com"], ["encrypted_password", "$2a$10$5kde3hcXZ3osDm7BlZC4.O.PyjXL/Jj.mT6TvOxe8tet2lK3G2vUi"], ["created_at", "2015-07-05 11:29:40.316438"], ["updated_at", "2015-07-05 11:29:40.316438"]]
+  [1m[35m (191.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-07-05 11:29:40.515788"], ["current_sign_in_at", "2015-07-05 11:29:40.515788"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-07-05 11:29:40.517636"], ["id", 1]]
+  [1m[36m (125.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/engines
+Completed 302 Found in 528ms (ActiveRecord: 319.3ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 05:29:40 -0600
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  Rendered engines/index.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_top.html.erb (1.9ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 49ms (Views: 25.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 05:29:40 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.2ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  Rendered engines/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 8.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 05:29:45 -0600
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  Rendered engines/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 05:29:45 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.2ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  Rendered engines/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 05:32:42 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  Rendered engines/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_top.html.erb (2.5ms)
+  Rendered layouts/_sidebar.html.erb (4.5ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 120ms (Views: 43.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 05:32:42 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.2ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  Rendered engines/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_top.html.erb (0.6ms)
+  Rendered layouts/_sidebar.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 11.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-05 05:32:53 -0600
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_top.html.erb (3.3ms)
+  Rendered layouts/_sidebar.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-05 05:32:53 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (6.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (127.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (100.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEngines (20150704225601)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "engines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "image" varchar, "description" text, "license_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704225601"]]
+  [1m[35m (195.8ms)[0m  commit transaction
+Migrating to CreateGames (20150704225710)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "engine_id" integer, "name" varchar, "image" varchar, "description" text, "license_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704225710"]]
+  [1m[35m (95.9ms)[0m  commit transaction
+Migrating to CreateComponents (20150704230536)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "components" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "image" varchar, "description" text, "license_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230536"]]
+  [1m[35m (106.6ms)[0m  commit transaction
+Migrating to CreateAssets (20150704230555)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "category_id" integer, "download" varchar, "license_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230555"]]
+  [1m[35m (73.6ms)[0m  commit transaction
+Migrating to CreateIncentives (20150704230613)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "incentives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asset_id" integer, "user_id" integer, "amount" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230613"]]
+  [1m[35m (62.4ms)[0m  commit transaction
+Migrating to CreateCredits (20150704230625)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "credits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "asset_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230625"]]
+  [1m[35m (96.9ms)[0m  commit transaction
+Migrating to CreateCategories (20150704230750)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230750"]]
+  [1m[35m (82.8ms)[0m  commit transaction
+Migrating to CreateLicenses (20150704230837)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "licenses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "website" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230837"]]
+  [1m[35m (118.3ms)[0m  commit transaction
+Migrating to CreateComponentInGames (20150704230848)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "component_in_games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230848"]]
+  [1m[35m (94.1ms)[0m  commit transaction
+Migrating to CreateEngineRatings (20150704230859)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "engine_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "engine_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230859"]]
+  [1m[35m (109.2ms)[0m  commit transaction
+Migrating to CreateGameRatings (20150704230907)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "game_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "game_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230907"]]
+  [1m[35m (117.6ms)[0m  commit transaction
+Migrating to CreateComponentRatings (20150704230914)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "component_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230914"]]
+  [1m[35m (72.7ms)[0m  commit transaction
+Migrating to CreateEngineComments (20150704230929)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "engine_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "engine_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230929"]]
+  [1m[35m (63.0ms)[0m  commit transaction
+Migrating to CreateGameComments (20150704230940)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "game_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "game_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704230940"]]
+  [1m[35m (107.4ms)[0m  commit transaction
+Migrating to CreateAssetComments (20150704231015)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "asset_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asset_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231015"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+Migrating to CreateEngineTags (20150704231109)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "engine_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "engine_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231109"]]
+  [1m[35m (107.4ms)[0m  commit transaction
+Migrating to CreateGameTags (20150704231117)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "game_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "game_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231117"]]
+  [1m[35m (105.9ms)[0m  commit transaction
+Migrating to CreateComponentTags (20150704231124)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "component_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231124"]]
+  [1m[35m (590.7ms)[0m  commit transaction
+Migrating to CreateAssetTags (20150704231131)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "asset_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asset_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231131"]]
+  [1m[35m (122.5ms)[0m  commit transaction
+Migrating to CreateTags (20150704231137)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704231137"]]
+  [1m[35m (72.8ms)[0m  commit transaction
+Migrating to DeviseCreateUsers (20150704233605)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150704233605"]]
+  [1m[36m (103.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddColumnsToUsers (20150704233639)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "provider" varchar[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "uid" varchar
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150704233639"]]
+  [1m[35m (73.5ms)[0m  commit transaction
+Migrating to AddEngineIdToComponent (20150705002324)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "components" ADD "engine_id" integer
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150705002324"]]
+  [1m[35m (84.2ms)[0m  commit transaction
+Migrating to AddNameToAsset (20150705021946)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "assets" ADD "name" varchar
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150705021946"]]
+  [1m[35m (107.0ms)[0m  commit transaction
+Migrating to CreateAssetRatings (20150705025248)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "asset_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asset_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150705025248"]]
+  [1m[35m (95.5ms)[0m  commit transaction
+Migrating to CreateComponentComments (20150705033933)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "component_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "component_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150705033933"]]
+  [1m[35m (94.5ms)[0m  commit transaction
+Migrating to RemoveNameFromTag (20150705035843)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "atags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "tags"[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "tags"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "atags"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "atags"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705035843"]]
+  [1m[36m (101.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddNameToTag (20150705035911)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "tags" ADD "name" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705035911"]]
+  [1m[36m (86.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResources (20150705094326)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "resources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "image" varchar, "component_id" integer, "category_id" integer, "download" varchar, "license_id" integer, "video" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705094326"]]
+  [1m[36m (128.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResourceRatings (20150705094335)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "resource_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer, "rating" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705094335"]]
+  [1m[36m (93.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResourceComments (20150705094352)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "resource_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer, "user_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705094352"]]
+  [1m[36m (75.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResourceTags (20150705094401)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "resource_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150705094401"]]
+  [1m[36m (93.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'a@a.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "a@a.com"], ["encrypted_password", "$2a$10$BRPLRevpZAw18kgd/fYEquE1TjVXDzTLH9My.NgD6dojlkKNjG/WO"], ["created_at", "2015-07-05 11:59:47.118149"], ["updated_at", "2015-07-05 11:59:47.118149"]]
+  [1m[36m (101.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'b@b.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "b@b.com"], ["encrypted_password", "$2a$10$MBRv2bIj7xZpd4lqmb/eNuxoehDR3P.sPogAw3x.iwk1/wGEW1eDe"], ["created_at", "2015-07-05 11:59:47.366719"], ["updated_at", "2015-07-05 11:59:47.366719"]]
+  [1m[36m (76.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'c@c.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "c@c.com"], ["encrypted_password", "$2a$10$mCBQnLq7GLwfANqjQBF9RO6rKJTdahgRtwbaXrTf93fwGEkKFHj2W"], ["created_at", "2015-07-05 11:59:47.584417"], ["updated_at", "2015-07-05 11:59:47.584417"]]
+  [1m[36m (79.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "engines" ("name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Shooter"], ["image", nil], ["description", "Kill and do not die."], ["license_id", 1], ["created_at", "2015-07-05 11:59:47.703135"], ["updated_at", "2015-07-05 11:59:47.703135"]]
+  [1m[35m (81.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "engines" ("name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Fighter"], ["image", nil], ["description", "Humilliate your friends."], ["license_id", 2], ["created_at", "2015-07-05 11:59:47.791278"], ["updated_at", "2015-07-05 11:59:47.791278"]]
+  [1m[36m (125.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "engines" ("name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Visual Novel"], ["image", nil], ["description", "Find true love."], ["license_id", 2], ["created_at", "2015-07-05 11:59:47.922498"], ["updated_at", "2015-07-05 11:59:47.922498"]]
+  [1m[35m (129.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "games" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["engine_id", 1], ["name", "Maximum Overkill"], ["image", nil], ["description", "War destroyer"], ["license_id", 1], ["created_at", "2015-07-05 11:59:48.091946"], ["updated_at", "2015-07-05 11:59:48.091946"]]
+  [1m[36m (113.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "games" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["engine_id", 1], ["name", "Shaniqua"], ["image", nil], ["description", "The end is near"], ["license_id", 2], ["created_at", "2015-07-05 11:59:48.211529"], ["updated_at", "2015-07-05 11:59:48.211529"]]
+  [1m[35m (95.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "games" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["engine_id", 2], ["name", "Chan Balam"], ["image", nil], ["description", "Fight!"], ["license_id", 1], ["created_at", "2015-07-05 11:59:48.310779"], ["updated_at", "2015-07-05 11:59:48.310779"]]
+  [1m[36m (96.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "games" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["engine_id", 2], ["name", "Supah Stick Faitah"], ["image", nil], ["description", "No scrubs accepted."], ["license_id", 1], ["created_at", "2015-07-05 11:59:48.410918"], ["updated_at", "2015-07-05 11:59:48.410918"]]
+  [1m[35m (84.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "games" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["engine_id", 3], ["name", "Katawa Shoujo"], ["image", nil], ["description", "The feels are too strongs."], ["license_id", 2], ["created_at", "2015-07-05 11:59:48.501405"], ["updated_at", "2015-07-05 11:59:48.501405"]]
+  [1m[36m (127.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "components" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["engine_id", 1], ["name", "Final boss: Hard"], ["image", nil], ["description", "such desc"], ["license_id", 1], ["created_at", "2015-07-05 11:59:48.660179"], ["updated_at", "2015-07-05 11:59:48.660179"]]
+  [1m[35m (114.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "components" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["engine_id", 1], ["name", "Final boss: Hell"], ["image", nil], ["description", "much wow"], ["license_id", 1], ["created_at", "2015-07-05 11:59:48.779844"], ["updated_at", "2015-07-05 11:59:48.779844"]]
+  [1m[36m (116.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "components" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["engine_id", 1], ["name", "Final boss: Lunatic"], ["image", nil], ["description", "very component"], ["license_id", 1], ["created_at", "2015-07-05 11:59:48.902619"], ["updated_at", "2015-07-05 11:59:48.902619"]]
+  [1m[35m (93.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "components" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["engine_id", 2], ["name", "Ultimate battlefield"], ["image", nil], ["description", "much battlefield"], ["license_id", 2], ["created_at", "2015-07-05 11:59:49.002878"], ["updated_at", "2015-07-05 11:59:49.002878"]]
+  [1m[36m (92.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "components" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["engine_id", 4], ["name", "High school dreams"], ["image", nil], ["description", "amaze"], ["license_id", 2], ["created_at", "2015-07-05 11:59:49.102718"], ["updated_at", "2015-07-05 11:59:49.102718"]]
+  [1m[35m (93.8ms)[0m  commit transaction
+  [1m[36m (1.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "components" ("engine_id", "name", "image", "description", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["engine_id", 4], ["name", "Love scene"], ["image", nil], ["description", "such scene"], ["license_id", 1], ["created_at", "2015-07-05 11:59:49.203351"], ["updated_at", "2015-07-05 11:59:49.203351"]]
+  [1m[36m (104.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "assets" ("component_id", "category_id", "name", "download", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["component_id", 1], ["category_id", 1], ["name", "Menu sfx"], ["download", "this is not set"], ["license_id", 1], ["created_at", "2015-07-05 11:59:49.345184"], ["updated_at", "2015-07-05 11:59:49.345184"]]
+  [1m[35m (117.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "assets" ("component_id", "category_id", "name", "download", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["component_id", 1], ["category_id", 2], ["name", "Angry boss sprites"], ["download", "this is not set"], ["license_id", 1], ["created_at", "2015-07-05 11:59:49.468005"], ["updated_at", "2015-07-05 11:59:49.468005"]]
+  [1m[36m (204.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "assets" ("component_id", "category_id", "name", "download", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["component_id", 1], ["category_id", 2], ["name", "Deathful bullets"], ["download", "this is not set"], ["license_id", 2], ["created_at", "2015-07-05 11:59:49.677318"], ["updated_at", "2015-07-05 11:59:49.677318"]]
+  [1m[35m (129.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "assets" ("component_id", "category_id", "name", "download", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["component_id", 2], ["category_id", 1], ["name", "Annoying sound effects"], ["download", "this is not set"], ["license_id", 2], ["created_at", "2015-07-05 11:59:49.811304"], ["updated_at", "2015-07-05 11:59:49.811304"]]
+  [1m[36m (117.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "assets" ("component_id", "category_id", "name", "download", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["component_id", 2], ["category_id", 3], ["name", "Sprites"], ["download", "this is not set"], ["license_id", 1], ["created_at", "2015-07-05 11:59:49.936379"], ["updated_at", "2015-07-05 11:59:49.936379"]]
+  [1m[35m (137.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "assets" ("component_id", "category_id", "name", "download", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["component_id", 3], ["category_id", 1], ["name", "Game music"], ["download", "this is not set"], ["license_id", 1], ["created_at", "2015-07-05 11:59:50.079837"], ["updated_at", "2015-07-05 11:59:50.079837"]]
+  [1m[36m (148.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "assets" ("component_id", "category_id", "name", "download", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["component_id", 4], ["category_id", 2], ["name", "Voices pack"], ["download", "this is not set"], ["license_id", 2], ["created_at", "2015-07-05 11:59:50.234742"], ["updated_at", "2015-07-05 11:59:50.234742"]]
+  [1m[35m (115.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "assets" ("component_id", "category_id", "name", "download", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["component_id", 5], ["category_id", 1], ["name", "XML code"], ["download", "this is not set"], ["license_id", 1], ["created_at", "2015-07-05 11:59:50.356342"], ["updated_at", "2015-07-05 11:59:50.356342"]]
+  [1m[36m (148.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "assets" ("component_id", "category_id", "name", "download", "license_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["component_id", 6], ["category_id", 1], ["name", "Small crying bunny"], ["download", "this is not set"], ["license_id", 1], ["created_at", "2015-07-05 11:59:50.512349"], ["updated_at", "2015-07-05 11:59:50.512349"]]
+  [1m[35m (136.8ms)[0m  commit transaction
+  [1m[36m (1.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "incentives" ("asset_id", "user_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["asset_id", 1], ["user_id", 1], ["amount", 100], ["created_at", "2015-07-05 11:59:50.678893"], ["updated_at", "2015-07-05 11:59:50.678893"]]
+  [1m[36m (115.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "incentives" ("asset_id", "user_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["asset_id", 3], ["user_id", 1], ["amount", 500], ["created_at", "2015-07-05 11:59:50.799962"], ["updated_at", "2015-07-05 11:59:50.799962"]]
+  [1m[35m (94.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "incentives" ("asset_id", "user_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["asset_id", 3], ["user_id", 2], ["amount", 200], ["created_at", "2015-07-05 11:59:50.901284"], ["updated_at", "2015-07-05 11:59:50.901284"]]
+  [1m[36m (93.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "incentives" ("asset_id", "user_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["asset_id", 3], ["user_id", 4], ["amount", 1500], ["created_at", "2015-07-05 11:59:50.999771"], ["updated_at", "2015-07-05 11:59:50.999771"]]
+  [1m[35m (106.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 1], ["asset_id", 1], ["created_at", "2015-07-05 11:59:51.131394"], ["updated_at", "2015-07-05 11:59:51.131394"]]
+  [1m[36m (119.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["asset_id", 1], ["created_at", "2015-07-05 11:59:51.256068"], ["updated_at", "2015-07-05 11:59:51.256068"]]
+  [1m[35m (96.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 3], ["asset_id", 1], ["created_at", "2015-07-05 11:59:51.356909"], ["updated_at", "2015-07-05 11:59:51.356909"]]
+  [1m[36m (116.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["asset_id", 1], ["created_at", "2015-07-05 11:59:51.478485"], ["updated_at", "2015-07-05 11:59:51.478485"]]
+  [1m[35m (107.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 3], ["asset_id", 2], ["created_at", "2015-07-05 11:59:51.590318"], ["updated_at", "2015-07-05 11:59:51.590318"]]
+  [1m[36m (127.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["asset_id", 2], ["created_at", "2015-07-05 11:59:51.722719"], ["updated_at", "2015-07-05 11:59:51.722719"]]
+  [1m[35m (117.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 1], ["asset_id", 3], ["created_at", "2015-07-05 11:59:51.844374"], ["updated_at", "2015-07-05 11:59:51.844374"]]
+  [1m[36m (96.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["asset_id", 4], ["created_at", "2015-07-05 11:59:51.945944"], ["updated_at", "2015-07-05 11:59:51.945944"]]
+  [1m[35m (94.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 1], ["asset_id", 5], ["created_at", "2015-07-05 11:59:52.045891"], ["updated_at", "2015-07-05 11:59:52.045891"]]
+  [1m[36m (94.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["asset_id", 6], ["created_at", "2015-07-05 11:59:52.144825"], ["updated_at", "2015-07-05 11:59:52.144825"]]
+  [1m[35m (96.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 2], ["asset_id", 6], ["created_at", "2015-07-05 11:59:52.245831"], ["updated_at", "2015-07-05 11:59:52.245831"]]
+  [1m[36m (119.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "credits" ("user_id", "asset_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["asset_id", 6], ["created_at", "2015-07-05 11:59:52.367714"], ["updated_at", "2015-07-05 11:59:52.367714"]]
+  [1m[35m (141.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "sfx"], ["created_at", "2015-07-05 11:59:52.527310"], ["updated_at", "2015-07-05 11:59:52.527310"]]
+  [1m[36m (147.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "graphics"], ["created_at", "2015-07-05 11:59:52.678281"], ["updated_at", "2015-07-05 11:59:52.678281"]]
+  [1m[35m (119.3ms)[0m  commit transaction
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "music"], ["created_at", "2015-07-05 11:59:52.801287"], ["updated_at", "2015-07-05 11:59:52.801287"]]
+  [1m[36m (83.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "gameplay"], ["created_at", "2015-07-05 11:59:52.890055"], ["updated_at", "2015-07-05 11:59:52.890055"]]
+  [1m[35m (73.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "licenses" ("name", "website", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "GPL"], ["website", "http://www.gnu.org/licenses/gpl.html"], ["created_at", "2015-07-05 11:59:52.999785"], ["updated_at", "2015-07-05 11:59:52.999785"]]
+  [1m[36m (86.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "licenses" ("name", "website", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "MIT"], ["website", "http://opensource.org/licenses/MIT"], ["created_at", "2015-07-05 11:59:53.090421"], ["updated_at", "2015-07-05 11:59:53.090421"]]
+  [1m[35m (95.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "component_in_games" ("component_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["component_id", 1], ["game_id", 1], ["created_at", "2015-07-05 11:59:53.206141"], ["updated_at", "2015-07-05 11:59:53.206141"]]
+  [1m[36m (92.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "component_in_games" ("component_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["component_id", 2], ["game_id", 1], ["created_at", "2015-07-05 11:59:53.302558"], ["updated_at", "2015-07-05 11:59:53.302558"]]
+  [1m[35m (86.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "component_in_games" ("component_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["component_id", 3], ["game_id", 1], ["created_at", "2015-07-05 11:59:53.392564"], ["updated_at", "2015-07-05 11:59:53.392564"]]
+  [1m[36m (139.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "component_in_games" ("component_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["component_id", 5], ["game_id", 2], ["created_at", "2015-07-05 11:59:53.535881"], ["updated_at", "2015-07-05 11:59:53.535881"]]
+  [1m[35m (140.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "component_in_games" ("component_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["component_id", 5], ["game_id", 2], ["created_at", "2015-07-05 11:59:53.679947"], ["updated_at", "2015-07-05 11:59:53.679947"]]
+  [1m[36m (107.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "engine_ratings" ("engine_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["engine_id", 1], ["rating", 3], ["created_at", "2015-07-05 11:59:53.805614"], ["updated_at", "2015-07-05 11:59:53.805614"]]
+  [1m[35m (205.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "engine_ratings" ("engine_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["engine_id", 1], ["rating", 5], ["created_at", "2015-07-05 11:59:54.015573"], ["updated_at", "2015-07-05 11:59:54.015573"]]
+  [1m[36m (214.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "engine_ratings" ("engine_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["engine_id", 1], ["rating", 4], ["created_at", "2015-07-05 11:59:54.234283"], ["updated_at", "2015-07-05 11:59:54.234283"]]
+  [1m[35m (95.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "engine_ratings" ("engine_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["engine_id", 2], ["rating", 5], ["created_at", "2015-07-05 11:59:54.334286"], ["updated_at", "2015-07-05 11:59:54.334286"]]
+  [1m[36m (95.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "engine_ratings" ("engine_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["engine_id", 2], ["rating", 1], ["created_at", "2015-07-05 11:59:54.434224"], ["updated_at", "2015-07-05 11:59:54.434224"]]
+  [1m[35m (86.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "engine_ratings" ("engine_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["engine_id", 3], ["rating", 2], ["created_at", "2015-07-05 11:59:54.524360"], ["updated_at", "2015-07-05 11:59:54.524360"]]
+  [1m[36m (151.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "game_ratings" ("game_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["game_id", 1], ["rating", 3], ["created_at", "2015-07-05 11:59:54.693205"], ["updated_at", "2015-07-05 11:59:54.693205"]]
+  [1m[35m (115.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "game_ratings" ("game_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["game_id", 1], ["rating", 5], ["created_at", "2015-07-05 11:59:54.812876"], ["updated_at", "2015-07-05 11:59:54.812876"]]
+  [1m[36m (74.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "game_ratings" ("game_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["game_id", 1], ["rating", 4], ["created_at", "2015-07-05 11:59:54.891362"], ["updated_at", "2015-07-05 11:59:54.891362"]]
+  [1m[35m (73.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "game_ratings" ("game_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["game_id", 2], ["rating", 5], ["created_at", "2015-07-05 11:59:54.969602"], ["updated_at", "2015-07-05 11:59:54.969602"]]
+  [1m[36m (73.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "game_ratings" ("game_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["game_id", 2], ["rating", 1], ["created_at", "2015-07-05 11:59:55.047637"], ["updated_at", "2015-07-05 11:59:55.047637"]]
+  [1m[35m (73.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "game_ratings" ("game_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["game_id", 3], ["rating", 2], ["created_at", "2015-07-05 11:59:55.125608"], ["updated_at", "2015-07-05 11:59:55.125608"]]
+  [1m[36m (183.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "component_ratings" ("component_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["component_id", 1], ["rating", 3], ["created_at", "2015-07-05 11:59:55.325855"], ["updated_at", "2015-07-05 11:59:55.325855"]]
+  [1m[35m (94.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "component_ratings" ("component_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["component_id", 1], ["rating", 5], ["created_at", "2015-07-05 11:59:55.424938"], ["updated_at", "2015-07-05 11:59:55.424938"]]
+  [1m[36m (84.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "component_ratings" ("component_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["component_id", 1], ["rating", 4], ["created_at", "2015-07-05 11:59:55.514078"], ["updated_at", "2015-07-05 11:59:55.514078"]]
+  [1m[35m (119.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "component_ratings" ("component_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["component_id", 2], ["rating", 5], ["created_at", "2015-07-05 11:59:55.637870"], ["updated_at", "2015-07-05 11:59:55.637870"]]
+  [1m[36m (96.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "component_ratings" ("component_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["component_id", 2], ["rating", 1], ["created_at", "2015-07-05 11:59:55.737874"], ["updated_at", "2015-07-05 11:59:55.737874"]]
+  [1m[35m (73.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "component_ratings" ("component_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["component_id", 3], ["rating", 2], ["created_at", "2015-07-05 11:59:55.815345"], ["updated_at", "2015-07-05 11:59:55.815345"]]
+  [1m[36m (74.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "asset_ratings" ("asset_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["asset_id", 1], ["rating", 3], ["created_at", "2015-07-05 11:59:55.906357"], ["updated_at", "2015-07-05 11:59:55.906357"]]
+  [1m[35m (105.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "asset_ratings" ("asset_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["asset_id", 1], ["rating", 5], ["created_at", "2015-07-05 11:59:56.016268"], ["updated_at", "2015-07-05 11:59:56.016268"]]
+  [1m[36m (95.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "asset_ratings" ("asset_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["asset_id", 1], ["rating", 4], ["created_at", "2015-07-05 11:59:56.116112"], ["updated_at", "2015-07-05 11:59:56.116112"]]
+  [1m[35m (95.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "asset_ratings" ("asset_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["asset_id", 2], ["rating", 5], ["created_at", "2015-07-05 11:59:56.215570"], ["updated_at", "2015-07-05 11:59:56.215570"]]
+  [1m[36m (105.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "asset_ratings" ("asset_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["asset_id", 2], ["rating", 1], ["created_at", "2015-07-05 11:59:56.326576"], ["updated_at", "2015-07-05 11:59:56.326576"]]
+  [1m[35m (97.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "asset_ratings" ("asset_id", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["asset_id", 3], ["rating", 2], ["created_at", "2015-07-05 11:59:56.426327"], ["updated_at", "2015-07-05 11:59:56.426327"]]
+  [1m[36m (99.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "engine_comments" ("engine_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["engine_id", 1], ["user_id", 1], ["comment", "much wow"], ["created_at", "2015-07-05 11:59:56.543339"], ["updated_at", "2015-07-05 11:59:56.543339"]]
+  [1m[35m (91.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "engine_comments" ("engine_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["engine_id", 1], ["user_id", 2], ["comment", "such wow"], ["created_at", "2015-07-05 11:59:56.639888"], ["updated_at", "2015-07-05 11:59:56.639888"]]
+  [1m[36m (96.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "engine_comments" ("engine_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["engine_id", 1], ["user_id", 1], ["comment", "amaze"], ["created_at", "2015-07-05 11:59:56.740084"], ["updated_at", "2015-07-05 11:59:56.740084"]]
+  [1m[35m (95.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "engine_comments" ("engine_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["engine_id", 2], ["user_id", 2], ["comment", "very comment"], ["created_at", "2015-07-05 11:59:56.840296"], ["updated_at", "2015-07-05 11:59:56.840296"]]
+  [1m[36m (84.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "engine_comments" ("engine_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["engine_id", 2], ["user_id", 2], ["comment", "much engine"], ["created_at", "2015-07-05 11:59:56.929247"], ["updated_at", "2015-07-05 11:59:56.929247"]]
+  [1m[35m (139.7ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "engine_comments" ("engine_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["engine_id", 3], ["user_id", 2], ["comment", "so wow"], ["created_at", "2015-07-05 11:59:57.073716"], ["updated_at", "2015-07-05 11:59:57.073716"]]
+  [1m[36m (106.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "game_comments" ("game_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["game_id", 1], ["user_id", 1], ["comment", "much wow"], ["created_at", "2015-07-05 11:59:57.196613"], ["updated_at", "2015-07-05 11:59:57.196613"]]
+  [1m[35m (94.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "game_comments" ("game_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["game_id", 1], ["user_id", 2], ["comment", "such wow"], ["created_at", "2015-07-05 11:59:57.295689"], ["updated_at", "2015-07-05 11:59:57.295689"]]
+  [1m[36m (117.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "game_comments" ("game_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["game_id", 1], ["user_id", 1], ["comment", "amaze"], ["created_at", "2015-07-05 11:59:57.417904"], ["updated_at", "2015-07-05 11:59:57.417904"]]
+  [1m[35m (106.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "game_comments" ("game_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["game_id", 2], ["user_id", 2], ["comment", "very comment"], ["created_at", "2015-07-05 11:59:57.529093"], ["updated_at", "2015-07-05 11:59:57.529093"]]
+  [1m[36m (75.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "game_comments" ("game_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["game_id", 2], ["user_id", 2], ["comment", "much engine"], ["created_at", "2015-07-05 11:59:57.608326"], ["updated_at", "2015-07-05 11:59:57.608326"]]
+  [1m[35m (107.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "game_comments" ("game_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["game_id", 3], ["user_id", 2], ["comment", "so wow"], ["created_at", "2015-07-05 11:59:57.719922"], ["updated_at", "2015-07-05 11:59:57.719922"]]
+  [1m[36m (73.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "component_comments" ("component_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["component_id", 1], ["user_id", 1], ["comment", "much wow"], ["created_at", "2015-07-05 11:59:57.812508"], ["updated_at", "2015-07-05 11:59:57.812508"]]
+  [1m[35m (102.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "component_comments" ("component_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["component_id", 1], ["user_id", 2], ["comment", "such wow"], ["created_at", "2015-07-05 11:59:57.920011"], ["updated_at", "2015-07-05 11:59:57.920011"]]
+  [1m[36m (117.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "component_comments" ("component_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["component_id", 1], ["user_id", 1], ["comment", "amaze"], ["created_at", "2015-07-05 11:59:58.042150"], ["updated_at", "2015-07-05 11:59:58.042150"]]
+  [1m[35m (95.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "component_comments" ("component_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["component_id", 2], ["user_id", 2], ["comment", "very comment"], ["created_at", "2015-07-05 11:59:58.142052"], ["updated_at", "2015-07-05 11:59:58.142052"]]
+  [1m[36m (95.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "component_comments" ("component_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["component_id", 2], ["user_id", 2], ["comment", "much engine"], ["created_at", "2015-07-05 11:59:58.241840"], ["updated_at", "2015-07-05 11:59:58.241840"]]
+  [1m[35m (96.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "component_comments" ("component_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["component_id", 3], ["user_id", 2], ["comment", "so wow"], ["created_at", "2015-07-05 11:59:58.342325"], ["updated_at", "2015-07-05 11:59:58.342325"]]
+  [1m[36m (95.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "asset_comments" ("asset_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["asset_id", 1], ["user_id", 1], ["comment", "much wow"], ["created_at", "2015-07-05 11:59:58.453960"], ["updated_at", "2015-07-05 11:59:58.453960"]]
+  [1m[35m (105.9ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "asset_comments" ("asset_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["asset_id", 1], ["user_id", 2], ["comment", "such wow"], ["created_at", "2015-07-05 11:59:58.564253"], ["updated_at", "2015-07-05 11:59:58.564253"]]
+  [1m[36m (75.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "asset_comments" ("asset_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["asset_id", 1], ["user_id", 1], ["comment", "amaze"], ["created_at", "2015-07-05 11:59:58.643772"], ["updated_at", "2015-07-05 11:59:58.643772"]]
+  [1m[35m (106.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "asset_comments" ("asset_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["asset_id", 2], ["user_id", 2], ["comment", "very comment"], ["created_at", "2015-07-05 11:59:58.755254"], ["updated_at", "2015-07-05 11:59:58.755254"]]
+  [1m[36m (84.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "asset_comments" ("asset_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["asset_id", 2], ["user_id", 2], ["comment", "much engine"], ["created_at", "2015-07-05 11:59:58.843950"], ["updated_at", "2015-07-05 11:59:58.843950"]]
+  [1m[35m (96.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "asset_comments" ("asset_id", "user_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["asset_id", 3], ["user_id", 2], ["comment", "so wow"], ["created_at", "2015-07-05 11:59:58.944484"], ["updated_at", "2015-07-05 11:59:58.944484"]]
+  [1m[36m (260.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "engine_tags" ("engine_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["engine_id", 1], ["tag_id", 3], ["created_at", "2015-07-05 11:59:59.226965"], ["updated_at", "2015-07-05 11:59:59.226965"]]
+  [1m[35m (132.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "engine_tags" ("engine_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["engine_id", 1], ["tag_id", 5], ["created_at", "2015-07-05 11:59:59.365077"], ["updated_at", "2015-07-05 11:59:59.365077"]]
+  [1m[36m (127.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "engine_tags" ("engine_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["engine_id", 1], ["tag_id", 4], ["created_at", "2015-07-05 11:59:59.497279"], ["updated_at", "2015-07-05 11:59:59.497279"]]
+  [1m[35m (85.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "engine_tags" ("engine_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["engine_id", 2], ["tag_id", 5], ["created_at", "2015-07-05 11:59:59.586486"], ["updated_at", "2015-07-05 11:59:59.586486"]]
+  [1m[36m (85.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "engine_tags" ("engine_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["engine_id", 2], ["tag_id", 1], ["created_at", "2015-07-05 11:59:59.676015"], ["updated_at", "2015-07-05 11:59:59.676015"]]
+  [1m[35m (107.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "engine_tags" ("engine_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["engine_id", 3], ["tag_id", 2], ["created_at", "2015-07-05 11:59:59.788833"], ["updated_at", "2015-07-05 11:59:59.788833"]]
+  [1m[36m (84.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "game_tags" ("game_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["game_id", 1], ["tag_id", 3], ["created_at", "2015-07-05 11:59:59.892582"], ["updated_at", "2015-07-05 11:59:59.892582"]]
+  [1m[35m (102.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "game_tags" ("game_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["game_id", 1], ["tag_id", 5], ["created_at", "2015-07-05 11:59:59.999712"], ["updated_at", "2015-07-05 11:59:59.999712"]]
+  [1m[36m (105.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "game_tags" ("game_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["game_id", 1], ["tag_id", 4], ["created_at", "2015-07-05 12:00:00.111043"], ["updated_at", "2015-07-05 12:00:00.111043"]]
+  [1m[35m (106.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "game_tags" ("game_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["game_id", 2], ["tag_id", 5], ["created_at", "2015-07-05 12:00:00.221870"], ["updated_at", "2015-07-05 12:00:00.221870"]]
+  [1m[36m (95.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "game_tags" ("game_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["game_id", 2], ["tag_id", 1], ["created_at", "2015-07-05 12:00:00.322305"], ["updated_at", "2015-07-05 12:00:00.322305"]]
+  [1m[35m (94.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "game_tags" ("game_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["game_id", 3], ["tag_id", 2], ["created_at", "2015-07-05 12:00:00.422202"], ["updated_at", "2015-07-05 12:00:00.422202"]]
+  [1m[36m (94.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "component_tags" ("component_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["component_id", 1], ["tag_id", 3], ["created_at", "2015-07-05 12:00:00.531578"], ["updated_at", "2015-07-05 12:00:00.531578"]]
+  [1m[35m (86.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "component_tags" ("component_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["component_id", 1], ["tag_id", 5], ["created_at", "2015-07-05 12:00:00.621334"], ["updated_at", "2015-07-05 12:00:00.621334"]]
+  [1m[36m (173.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "component_tags" ("component_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["component_id", 1], ["tag_id", 4], ["created_at", "2015-07-05 12:00:00.799367"], ["updated_at", "2015-07-05 12:00:00.799367"]]
+  [1m[35m (96.6ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "component_tags" ("component_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["component_id", 2], ["tag_id", 5], ["created_at", "2015-07-05 12:00:00.900971"], ["updated_at", "2015-07-05 12:00:00.900971"]]
+  [1m[36m (106.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "component_tags" ("component_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["component_id", 2], ["tag_id", 1], ["created_at", "2015-07-05 12:00:01.012279"], ["updated_at", "2015-07-05 12:00:01.012279"]]
+  [1m[35m (95.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "component_tags" ("component_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["component_id", 3], ["tag_id", 2], ["created_at", "2015-07-05 12:00:01.112467"], ["updated_at", "2015-07-05 12:00:01.112467"]]
+  [1m[36m (106.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "asset_tags" ("asset_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["asset_id", 1], ["tag_id", 3], ["created_at", "2015-07-05 12:00:01.234155"], ["updated_at", "2015-07-05 12:00:01.234155"]]
+  [1m[35m (107.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "asset_tags" ("asset_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["asset_id", 1], ["tag_id", 5], ["created_at", "2015-07-05 12:00:01.345619"], ["updated_at", "2015-07-05 12:00:01.345619"]]
+  [1m[36m (96.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "asset_tags" ("asset_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["asset_id", 1], ["tag_id", 4], ["created_at", "2015-07-05 12:00:01.446202"], ["updated_at", "2015-07-05 12:00:01.446202"]]
+  [1m[35m (105.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "asset_tags" ("asset_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["asset_id", 2], ["tag_id", 5], ["created_at", "2015-07-05 12:00:01.555907"], ["updated_at", "2015-07-05 12:00:01.555907"]]
+  [1m[36m (107.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "asset_tags" ("asset_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["asset_id", 2], ["tag_id", 1], ["created_at", "2015-07-05 12:00:01.667400"], ["updated_at", "2015-07-05 12:00:01.667400"]]
+  [1m[35m (95.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "asset_tags" ("asset_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["asset_id", 3], ["tag_id", 2], ["created_at", "2015-07-05 12:00:01.767552"], ["updated_at", "2015-07-05 12:00:01.767552"]]
+  [1m[36m (94.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "yolo"], ["created_at", "2015-07-05 12:00:01.880093"], ["updated_at", "2015-07-05 12:00:01.880093"]]
+  [1m[35m (105.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "swag"], ["created_at", "2015-07-05 12:00:01.990910"], ["updated_at", "2015-07-05 12:00:01.990910"]]
+  [1m[36m (95.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "kony2016"], ["created_at", "2015-07-05 12:00:02.090785"], ["updated_at", "2015-07-05 12:00:02.090785"]]
+  [1m[35m (95.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "hacelopue"], ["created_at", "2015-07-05 12:00:02.190095"], ["updated_at", "2015-07-05 12:00:02.190095"]]
+  [1m[36m (96.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "maiwaifu"], ["created_at", "2015-07-05 12:00:02.290171"], ["updated_at", "2015-07-05 12:00:02.290171"]]
+  [1m[35m (75.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "31337"], ["created_at", "2015-07-05 12:00:02.368372"], ["updated_at", "2015-07-05 12:00:02.368372"]]
+  [1m[36m (108.3ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-05 06:00:26 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 401 Unauthorized in 57ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-05 06:00:26 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (39.4ms)
+Completed 200 OK in 61ms (Views: 53.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-07-05 06:00:33 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"daSdkzGX67GhpSaMrLsJJw10F+XQyOPOGd8CgwTC0ByikBN51y12cwsWD1E+kzPCKm3D78otV52OJiQD7szCDQ==", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "a@a.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-05 12:00:34.122192"], ["current_sign_in_at", "2015-07-05 12:00:34.122192"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-07-05 12:00:34.124536"], ["id", 1]]
+  [1m[35m (327.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 503ms (ActiveRecord: 328.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-05 06:00:34 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_top.html.erb (1.6ms)
+  Rendered layouts/_sidebar.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-05 06:00:34 -0600
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:00:40 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.3ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  [1m[35mLicense Load (0.3ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEngineTag Load (0.3ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mLicense Load (0.1ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.1ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (81.8ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 105ms (Views: 85.2ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:00:40 -0600
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.4ms)[0m  SELECT "engines".* FROM "engines"
+  [1m[36mLicense Load (0.1ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 1]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mLicense Load (0.2ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.3ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 3]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (33.0ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 38.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/components" for 127.0.0.1 at 2015-07-05 06:00:54 -0600
+Processing by ComponentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mComponent Load (0.5ms)[0m  SELECT "components".* FROM "components"
+  Rendered components/index.html.erb within layouts/application (16.3ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 21.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/components" for 127.0.0.1 at 2015-07-05 06:00:54 -0600
+Processing by ComponentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mComponent Load (0.3ms)[0m  SELECT "components".* FROM "components"
+  Rendered components/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 11.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:00:56 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.2ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  [1m[35mLicense Load (0.1ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEngineTag Load (0.1ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 1]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mLicense Load (0.2ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.3ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.1ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (18.2ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 22.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:00:56 -0600
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  [1m[36mLicense Load (0.1ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 1]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mLicense Load (0.2ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.4ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (23.6ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 29.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:01:29 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.4ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  [1m[35mLicense Load (0.2ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEngineTag Load (0.1ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 1]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mLicense Load (0.1ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.3ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (21.0ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 25.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:01:29 -0600
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.5ms)[0m  SELECT "engines".* FROM "engines"
+  [1m[36mLicense Load (0.3ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 1]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mLicense Load (0.1ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.1ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.1ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 3]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (18.2ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 22.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:01:38 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.3ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  [1m[35mLicense Load (0.2ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 1]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mLicense Load (0.2ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (23.0ms)
+  Rendered layouts/_top.html.erb (0.5ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 27.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:01:39 -0600
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.3ms)[0m  SELECT "engines".* FROM "engines"
+  [1m[36mLicense Load (0.2ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 1]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mLicense Load (0.1ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (29.5ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 34.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:01:53 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.3ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  [1m[35mLicense Load (0.2ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEngineTag Load (0.4ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 1]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mLicense Load (0.7ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.1ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (25.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 29.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:01:53 -0600
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.3ms)[0m  SELECT "engines".* FROM "engines"
+  [1m[36mLicense Load (0.2ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 1]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mLicense Load (0.1ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.1ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.1ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 3]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (18.6ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 23.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:02:05 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.5ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.3ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  [1m[35mLicense Load (0.2ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 1]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mLicense Load (0.2ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.3ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (23.4ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 27.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:02:05 -0600
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  [1m[36mLicense Load (0.2ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngineTag Load (0.7ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 1]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mLicense Load (0.2ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (24.8ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 28.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:02:17 -0600
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mEngine Load (0.5ms)[0m  [1mSELECT "engines".* FROM "engines"[0m
+  [1m[35mLicense Load (0.2ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mLicense Load (0.2ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.1ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEngineTag Load (0.2ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (27.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 31.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/engines" for 127.0.0.1 at 2015-07-05 06:02:17 -0600
+Processing by EnginesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mEngine Load (0.3ms)[0m  SELECT "engines".* FROM "engines"
+  [1m[36mLicense Load (0.2ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngineTag Load (0.3ms)[0m  SELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?  [["engine_id", 1]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mLicense Load (0.1ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.1ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEngineTag Load (0.2ms)[0m  [1mSELECT "engine_tags".* FROM "engine_tags" WHERE "engine_tags"."engine_id" = ?[0m  [["engine_id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered engines/index.html.erb within layouts/application (25.9ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 37ms (Views: 30.5ms | ActiveRecord: 2.6ms)

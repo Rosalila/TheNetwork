@@ -49,6 +49,5 @@ body {
 
 .search{
     position: relative;
-    top: 15px;
-    width: 50px;
+    top: -15px;
 }
