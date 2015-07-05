@@ -23,9 +23,9 @@
                         <span>Modules</span>
                       <% end %>
                   <li class="sub-menu">
-                    <%= link_to(assets_path) do %>
+                    <%= link_to(resources_path) do %>
                         <i class="fa fa-book"></i>
-                        <span>Assets</span>
+                        <span>Resources</span>
                     <% end %>
                   </li>
                   <li class="sub-menu">
@@ -43,7 +43,7 @@
                       <ul class="sub">
                           <li><%= link_to "Engine", new_engine_path %></li>
                           <li><%= link_to "Module", new_component_path %></li>
-                          <li><%= link_to "Resources", new_asset_path %></li>
+                          <li><%= link_to "Resources", new_resource_path %></li>
                           <li><%= link_to "Games", new_game_path %></li>
                       </ul>
                   </li>
