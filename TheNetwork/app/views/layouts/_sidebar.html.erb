@@ -34,6 +34,7 @@
                         <span>Games</span>
                      <% end %>
                   </li>
+                  <% if user_signed_in? %>
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-th"></i>
@@ -42,10 +43,11 @@
                       <ul class="sub">
                           <li><%= link_to "Engine", new_engine_path %></li>
                           <li><%= link_to "Module", new_component_path %></li>
-                          <li><%= link_to "Assests", new_asset_path %></li>
+                          <li><%= link_to "Resources", new_asset_path %></li>
                           <li><%= link_to "Games", new_game_path %></li>
                       </ul>
                   </li>
+                  <% end %>
                 </ul>
                   
                                        <!-- sidebar menu end-->
