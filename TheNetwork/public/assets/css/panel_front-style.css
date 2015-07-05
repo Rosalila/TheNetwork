@@ -51,3 +51,7 @@ body {
     position: relative;
     top: 15px;
 }
+
+#Container .mix{
+    display: none;
+}
