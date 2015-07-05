@@ -74,7 +74,9 @@
               <h4>License: <%=component.license.name%>
               <p style = "font-family: Arial; font-size: 18px"><%=component.description%></p><br>
               <p style = "font-family: Arial; font-size: 18px">Current State: <%=component.finish%></p>
-              <a href="/finish/<%= component.id %>" button type="button" class="btn btn-theme">Change</button></a><br>
+              <% if current_user.present? %>
+                <a href="/finish/<%= component.id %>" button type="button" class="btn btn-theme">Change</button></a><br>
+              <% end %>
 
               <div class="ec-stars-wrapper">
                 <% suma = 0 %>
@@ -130,7 +132,9 @@
               <h4>License: <%=component.license.name%>
               <p style = "font-family: Arial; font-size: 18px"><%=component.description%></p><br>
               <p style = "font-family: Arial; font-size: 18px">Current State: <%=component.finish%></p>
-              <a href="/finish/<%= component.id %>" button type="button" class="btn btn-theme">Change</button></a><br>
+              <% if current_user.present? %>
+                <a href="/finish/<%= component.id %>" button type="button" class="btn btn-theme">Change</button></a><br>
+              <% end %>
 
               <div class="ec-stars-wrapper">
                 <% suma = 0 %>
