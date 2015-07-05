@@ -1,0 +1,2 @@
+module ComponentInGamesHelper
+end

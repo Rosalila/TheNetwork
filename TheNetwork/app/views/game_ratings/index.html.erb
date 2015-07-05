@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Game Ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_ratings.each do |game_rating| %>
+      <tr>
+        <td><%= game_rating.game_id %></td>
+        <td><%= game_rating.rating %></td>
+        <td><%= link_to 'Show', game_rating %></td>
+        <td><%= link_to 'Edit', edit_game_rating_path(game_rating) %></td>
+        <td><%= link_to 'Destroy', game_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game rating', new_game_rating_path %>
