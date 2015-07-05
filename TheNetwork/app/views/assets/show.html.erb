@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Component:</strong>
+  <%= @asset.component_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @asset.category_id %>
+</p>
+
+<p>
+  <strong>Download:</strong>
+  <%= @asset.download %>
+</p>
+
+<p>
+  <strong>License:</strong>
+  <%= @asset.license_id %>
+</p>
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>

@@ -1,0 +1,29 @@
+<%= form_for(@incentive) do |f| %>
+  <% if @incentive.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incentive.errors.count, "error") %> prohibited this incentive from being saved:</h2>
+
+      <ul>
+      <% @incentive.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :asset_id %><br>
+    <%= f.number_field :asset_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

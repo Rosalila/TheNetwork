@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asset:</strong>
+  <%= @asset_tag.asset_id %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @asset_tag.tag_id %>
+</p>
+
+<%= link_to 'Edit', edit_asset_tag_path(@asset_tag) %> |
+<%= link_to 'Back', asset_tags_path %>

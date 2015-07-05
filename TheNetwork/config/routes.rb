@@ -1,5 +1,32 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+
+  root 'home#index'
+
+  resources :tags
+  resources :asset_tags
+  resources :component_tags
+  resources :game_tags
+  resources :engine_tags
+  resources :asset_comments
+  resources :component_comments
+  resources :game_comments
+  resources :game_comments
+  resources :engine_comments
+  resources :assets_ratings
+  resources :component_ratings
+  resources :game_ratings
+  resources :engine_ratings
+  resources :component_in_games
+  resources :licenses
+  resources :categories
+  resources :credits
+  resources :incentives
+  resources :assets
+  resources :components
+  resources :games
+  resources :engines
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
