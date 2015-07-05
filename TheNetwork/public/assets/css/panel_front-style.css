@@ -44,14 +44,11 @@ body {
 
 .label-pane{
     position: relative;
-    bottom: -15px;
+    bottom: 0px;
 }
 
-.serach{
+.search{
     position: relative;
     top: 15px;
-}
-
-#Container .mix{
-    display: none;
+    width: 50px;
 }
