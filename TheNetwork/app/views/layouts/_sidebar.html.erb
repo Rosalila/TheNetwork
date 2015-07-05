@@ -6,34 +6,33 @@
               	  <p class="centered"><a href="profile.html"><img src="#" class="img-circle" width="60"></a></p>
               	  	
                   <li class="mt">
-                      <a href="javascript:;">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Home</span>
-                      </a>
+                    <%= link_to(root_path) do %>
+                        <i class="fa fa-dashboard"></i>
+                        <span>Home</span>
+                      <% end %>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>Engines</span>
-                      </a>
+                    <%= link_to(engines_path) do %>
+                        <i class="fa fa-desktop"></i>
+                        <span>Engines</span>
+                      <% end %>
                   <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-cogs"></i>
-                          <span>Modules</span>
-                      </a>
+                     <%= link_to(components_path) do %>
+                        <i class="fa fa-cogs"></i>
+                        <span>Modules</span>
+                      <% end %>
                   <li class="sub-menu">
-                      <a class="active" href="javascript:;" >
-                          <i class="fa fa-book"></i>
-                          <span>Assets</span>
-                      </a>
-
+                    <%= link_to(assets_path) do %>
+                        <i class="fa fa-book"></i>
+                        <span>Assets</span>
+                    <% end %>
                   </li>
                   <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-tasks"></i>
-                          <span>Games</span>
-                      </a>
+                     <%= link_to(games_path) do %>
+                        <i class="fa fa-tasks"></i>
+                        <span>Games</span>
+                     <% end %>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
@@ -41,10 +40,10 @@
                           <span>Upload</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="#">Engine</a></li>
-                          <li><a  href="#">Module</a></li>
-                          <li><a  href="#">Assests</a></li>
-                          <li><a  href="#">Games</a></li>
+                          <li><%= link_to "Engine", new_engine_path %></li>
+                          <li><%= link_to "Module", new_component_path %></li>
+                          <li><%= link_to "Assests", new_asset_path %></li>
+                          <li><%= link_to "Games", new_game_path %></li>
                       </ul>
                   </li>
                 </ul>

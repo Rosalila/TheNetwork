@@ -1225,3 +1225,1573 @@ Processing by Devise::RegistrationsController#new as HTML
   Rendered devise/shared/_links.html.erb (2.2ms)
   Rendered devise/registrations/new.html.erb within layouts/devise (7.7ms)
 Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 190.5.120.195 at 2015-07-05 08:00:48 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (40.1ms)
+Completed 200 OK in 102ms (Views: 51.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in" for 190.5.120.195 at 2015-07-05 08:00:52 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"snfssrCOsWq0Nc201VQyAAUIXDPOBvTIzBrUdCBzhJdXFYRc4I305ScZKSIy/bsdPyvcgMt7e/49IINvUpZuoA==", "user"=>{"email"=>"serpel.js@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "serpel.js@gmail.com"]]
+Completed 401 Unauthorized in 108ms (ActiveRecord: 0.4ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"snfssrCOsWq0Nc201VQyAAUIXDPOBvTIzBrUdCBzhJdXFYRc4I305ScZKSIy/bsdPyvcgMt7e/49IINvUpZuoA==", "user"=>{"email"=>"serpel.js@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  Rendered devise/sessions/new.html.erb within layouts/devise (3.2ms)
+Completed 200 OK in 103ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 190.5.120.195 at 2015-07-05 08:00:56 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/users/auth/facebook/callback?code=AQCi2JbPMRccf1RnBds7v7T2d-G0gFQwnmQ4RQGrckonSJ_lZyMlai-f-14Z7Jw3L42Ohp0MVyHlWQ_6CzZTMPDZ3nBcEx3gULmUHoVflWBLiSA_Z3dQltGwBRNFuUmevLpP8avusKRlEGo8DY0Ipxfo72j90HDwGQxvW4W7n58RUAAS7x-qmPvQeaVvJakZIaqkX9kuZdYqKGdF6_DeFGP6JTfa5ayCGuq_BNjg53pUBL08fhZTLY8Z5n06FbiJ4TNQdEHyG0dC7GIsZp3t_EvnmXb5bVA9r0dUCc2RrGisfSEvyAyscOgUO9GCrODwXx8yA2fd0dxlTQC0GnJzGSPD&state=4699862a39268a0a3cf585ab1242ccaa2e64281398ceeab7" for 190.5.120.195 at 2015-07-05 08:00:57 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQCi2JbPMRccf1RnBds7v7T2d-G0gFQwnmQ4RQGrckonSJ_lZyMlai-f-14Z7Jw3L42Ohp0MVyHlWQ_6CzZTMPDZ3nBcEx3gULmUHoVflWBLiSA_Z3dQltGwBRNFuUmevLpP8avusKRlEGo8DY0Ipxfo72j90HDwGQxvW4W7n58RUAAS7x-qmPvQeaVvJakZIaqkX9kuZdYqKGdF6_DeFGP6JTfa5ayCGuq_BNjg53pUBL08fhZTLY8Z5n06FbiJ4TNQdEHyG0dC7GIsZp3t_EvnmXb5bVA9r0dUCc2RrGisfSEvyAyscOgUO9GCrODwXx8yA2fd0dxlTQC0GnJzGSPD", "state"=>"4699862a39268a0a3cf585ab1242ccaa2e64281398ceeab7"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "facebook"], ["uid", "1179889032036835"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-05 07:59:27.683858"], ["current_sign_in_at", "2015-07-05 08:00:58.039529"], ["sign_in_count", 3], ["updated_at", "2015-07-05 08:00:58.040814"], ["id", 1]]
+  [1m[35m (6826.0ms)[0m  commit transaction
+Redirected to http://checho-box-195086.use1.nitrousbox.com/
+Completed 302 Found in 6834ms (ActiveRecord: 6826.9ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:01:05 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_top.html.erb (1.0ms)
+  Rendered layouts/_sidebar.html.erb (0.3ms)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:01:05 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_out" for 190.5.120.195 at 2015-07-05 08:01:10 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://checho-box-195086.use1.nitrousbox.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:01:10 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 190.5.120.195 at 2015-07-05 08:01:10 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (2.3ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 190.5.120.195 at 2015-07-05 08:01:14 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/devise (5.8ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 190.5.120.195 at 2015-07-05 08:06:20 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/devise (2.7ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 190.5.120.195 at 2015-07-05 08:07:06 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/devise (1.0ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 190.5.120.195 at 2015-07-05 08:07:26 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/devise (2.1ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 190.5.120.195 at 2015-07-05 08:08:52 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/devise (3.2ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 190.5.120.195 at 2015-07-05 08:09:12 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/devise (1.3ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 190.5.120.195 at 2015-07-05 08:09:18 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wnEQ2m7qnE+dA5Ffqfvm+C4b9aaNiVFpr0qLo2oLUXjk/ct2GAf8JQ1tB5mqSM9YrqXP0ZirBqUZ8WAQ8jirMg==", "user"=>{"email"=>"serpel.js@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "serpel.js@gmail.com"]]
+Completed 401 Unauthorized in 100ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wnEQ2m7qnE+dA5Ffqfvm+C4b9aaNiVFpr0qLo2oLUXjk/ct2GAf8JQ1tB5mqSM9YrqXP0ZirBqUZ8WAQ8jirMg==", "user"=>{"email"=>"serpel.js@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  Rendered devise/sessions/new.html.erb within layouts/devise (3.8ms)
+Completed 200 OK in 106ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 190.5.120.195 at 2015-07-05 08:09:19 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/users/auth/facebook/callback?code=AQDIuOXmtMKby11pf_uB8f_qcJgFm74PWtCYjWgR32paLGKKtNGlOB8o4HBUKXw964BDVYELq2rVqAmuquKNEep_WCF5hBB4WkRQQkVdYJLQPn1Dytt2SDFPpHTjDFN-srzz3iQLETWQuqS5G_1PJy4K32opqr7rX8QcJeIlWecZQ5TqHPUZ90qbviYipnOPKfr9e9Z_7VjpYqcbB-qE6vzyXKC3XavOS_74TKTqYwB8UrXQZZrdkbktQVg8-cL39rJ5druNwgtIw8DwQ8IgR7AeIkeqAE4-tF7ej_MqS5iyDyQz1Xqi2B3SuNJPCstbPp60yOkj-kHd-XD-hBY9IyOJ&state=ed2cce45fdf5c94ab77da3d0fa72164d6fc44bcc06c90a43" for 190.5.120.195 at 2015-07-05 08:09:21 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDIuOXmtMKby11pf_uB8f_qcJgFm74PWtCYjWgR32paLGKKtNGlOB8o4HBUKXw964BDVYELq2rVqAmuquKNEep_WCF5hBB4WkRQQkVdYJLQPn1Dytt2SDFPpHTjDFN-srzz3iQLETWQuqS5G_1PJy4K32opqr7rX8QcJeIlWecZQ5TqHPUZ90qbviYipnOPKfr9e9Z_7VjpYqcbB-qE6vzyXKC3XavOS_74TKTqYwB8UrXQZZrdkbktQVg8-cL39rJ5druNwgtIw8DwQ8IgR7AeIkeqAE4-tF7ej_MqS5iyDyQz1Xqi2B3SuNJPCstbPp60yOkj-kHd-XD-hBY9IyOJ", "state"=>"ed2cce45fdf5c94ab77da3d0fa72164d6fc44bcc06c90a43"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "facebook"], ["uid", "1179889032036835"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-05 08:00:58.039529"], ["current_sign_in_at", "2015-07-05 08:09:21.273128"], ["sign_in_count", 4], ["updated_at", "2015-07-05 08:09:21.274547"], ["id", 1]]
+  [1m[35m (5742.5ms)[0m  commit transaction
+Redirected to http://checho-box-195086.use1.nitrousbox.com/
+Completed 302 Found in 5749ms (ActiveRecord: 5743.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:09:27 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.5ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:09:27 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_out" for 190.5.120.195 at 2015-07-05 08:09:53 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://checho-box-195086.use1.nitrousbox.com/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:09:53 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 190.5.120.195 at 2015-07-05 08:09:54 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (3.3ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 190.5.120.195 at 2015-07-05 08:09:55 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (2.1ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 190.5.120.195 at 2015-07-05 08:09:58 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YuBoVYheaMC4/2Xfyq2AE+GjVQfEW7ZBss0nUlpMc8u3CJhc0XNsXfxzX2Q4Qj28kuBIqT5v+ZGdSPtJ9IToVA==", "user"=>{"email"=>"serpel.js@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "serpel.js@gmail.com"]]
+Completed 401 Unauthorized in 97ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YuBoVYheaMC4/2Xfyq2AE+GjVQfEW7ZBss0nUlpMc8u3CJhc0XNsXfxzX2Q4Qj28kuBIqT5v+ZGdSPtJ9IToVA==", "user"=>{"email"=>"serpel.js@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In", "email"=>""}
+  Rendered devise/sessions/new.html.erb within layouts/devise (3.5ms)
+Completed 200 OK in 104ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 190.5.120.195 at 2015-07-05 08:10:01 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/users/auth/facebook/callback?code=AQBSvz-2YDxce6tgnpd7xYAiVFqIh-DaRZSeOBpeBVxilet3JTypUklBGiDFhaxVkiXvVBzQa0pgiD8doGFrCNlwF8R7UNztwY-R_lytUN2o8jX1I1fPhONhRapJFFg_oTMuniY1Yv1iKRTpd06jUYvo8YGP-ifTnT9TpE16LzWJ552U89MLp7HDpa9H1x003VZXLFMHmmIdkeuqT_rj23Q7FPVoLSowpeWSmDm-3G67jsHz_EjSq_0wpgVPTqzzSaMVASYL3LzAkFzc3tzl8iOGDORJJvdl9TgLGflsL6Bm3zKPMJnvlew83rw46srDifDS2jO2ZQHNAMkA1RsAQeT8&state=60016e600c0335d5a2ece7678b1ab2e26094e662eb440b0e" for 190.5.120.195 at 2015-07-05 08:10:01 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBSvz-2YDxce6tgnpd7xYAiVFqIh-DaRZSeOBpeBVxilet3JTypUklBGiDFhaxVkiXvVBzQa0pgiD8doGFrCNlwF8R7UNztwY-R_lytUN2o8jX1I1fPhONhRapJFFg_oTMuniY1Yv1iKRTpd06jUYvo8YGP-ifTnT9TpE16LzWJ552U89MLp7HDpa9H1x003VZXLFMHmmIdkeuqT_rj23Q7FPVoLSowpeWSmDm-3G67jsHz_EjSq_0wpgVPTqzzSaMVASYL3LzAkFzc3tzl8iOGDORJJvdl9TgLGflsL6Bm3zKPMJnvlew83rw46srDifDS2jO2ZQHNAMkA1RsAQeT8", "state"=>"60016e600c0335d5a2ece7678b1ab2e26094e662eb440b0e"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "facebook"], ["uid", "1179889032036835"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-07-05 08:09:21.273128"], ["current_sign_in_at", "2015-07-05 08:10:01.877304"], ["sign_in_count", 5], ["updated_at", "2015-07-05 08:10:01.879176"], ["id", 1]]
+  [1m[35m (1482.1ms)[0m  commit transaction
+Redirected to http://checho-box-195086.use1.nitrousbox.com/
+Completed 302 Found in 1490ms (ActiveRecord: 1483.1ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:10:03 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:10:03 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_out" for 190.5.120.195 at 2015-07-05 08:10:05 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://checho-box-195086.use1.nitrousbox.com/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:10:06 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 190.5.120.195 at 2015-07-05 08:10:06 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (2.1ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 190.5.120.195 at 2015-07-05 08:10:13 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/users/auth/facebook/callback?code=AQBySJdlM9IgDIUrC0apXZmWARe9TeZ53Z9tO8BFkrN23vzIDTA7fLFL6D6-ipzgfImBAVOhXLf02sYwB2oj4v-_o5jhIAbW0IZRxVa9vBDBmrEDogOatZIB8Bg3DeGeZqbvDjF-JKbIHEh3X6rcdQsKpMOlS-H49eKqGvwHmN-qnOqehQjHSx6oJwl1En6-n6B5MBLTYhR5zAj0rLz5s2KZuuozLDwPUGJohw3b0xiOefJjjZ8CChL2ZiB3eF_ZQ7gP-u5Av853GRyL3C3uBlg19mfc7zx1HdpU9CPJfCTTNkBkQe3-Bj79oADl90bNxDAEi4WQcTCqYrwaNaE7mBhg&state=7390f904882af772a7dcffe8ef872b4f5ce966c328e50549" for 190.5.120.195 at 2015-07-05 08:10:14 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBySJdlM9IgDIUrC0apXZmWARe9TeZ53Z9tO8BFkrN23vzIDTA7fLFL6D6-ipzgfImBAVOhXLf02sYwB2oj4v-_o5jhIAbW0IZRxVa9vBDBmrEDogOatZIB8Bg3DeGeZqbvDjF-JKbIHEh3X6rcdQsKpMOlS-H49eKqGvwHmN-qnOqehQjHSx6oJwl1En6-n6B5MBLTYhR5zAj0rLz5s2KZuuozLDwPUGJohw3b0xiOefJjjZ8CChL2ZiB3eF_ZQ7gP-u5Av853GRyL3C3uBlg19mfc7zx1HdpU9CPJfCTTNkBkQe3-Bj79oADl90bNxDAEi4WQcTCqYrwaNaE7mBhg", "state"=>"7390f904882af772a7dcffe8ef872b4f5ce966c328e50549"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "1179889032036835"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-07-05 08:10:01.877304"], ["current_sign_in_at", "2015-07-05 08:10:14.471172"], ["sign_in_count", 6], ["updated_at", "2015-07-05 08:10:14.472357"], ["id", 1]]
+  [1m[36m (90.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://checho-box-195086.use1.nitrousbox.com/
+Completed 302 Found in 96ms (ActiveRecord: 90.9ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:10:14 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:10:14 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/jnsdjsdns" for 190.5.120.195 at 2015-07-05 08:11:33 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/jnsdjsdns"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (11.7ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (104.8ms)
+
+
+Started GET "/users/sign_in" for 190.5.120.195 at 2015-07-05 08:13:47 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://checho-box-195086.use1.nitrousbox.com/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:13:47 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (1.4ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+SyntaxError (/home/action/workspace/TheNetwork/TheNetwork/app/views/layouts/_sidebar.html.erb:13: syntax error, unexpected ')', expecting keyword_end
+...r.append=  link_to(@root_path)) do @output_buffer.safe_appen...
+...                               ^
+/home/action/workspace/TheNetwork/TheNetwork/app/views/layouts/_sidebar.html.erb:24: syntax error, unexpected ')', expecting end-of-input
+...ppend=  link_to(@engines_path)) do @output_buffer.safe_appen...
+...                               ^):
+  app/views/layouts/_sidebar.html.erb:13: syntax error, unexpected ')', expecting keyword_end
+  app/views/layouts/_sidebar.html.erb:24: syntax error, unexpected ')', expecting end-of-input
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb___3574247067967826316_69902505619880'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.1ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.6ms)
+
+
+Started GET "/jnsdjsdns" for 190.5.120.195 at 2015-07-05 08:14:10 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/jnsdjsdns"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (17.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (129.3ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:13 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.5ms)
+  Rendered layouts/_sidebar.html.erb (5.4ms)
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:15 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:21 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:21 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:22 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:23 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:25 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:26 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:27 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:27 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:31 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:31 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:39 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:14:39 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:02 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (1.3ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:03 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:06 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:06 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:07 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:07 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:26 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (1.4ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:26 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:27 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:28 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:29 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:15:30 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/css/bootstrap.css.map" for 190.5.120.195 at 2015-07-05 08:15:33 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/assets/css/bootstrap.css.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (13.2ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (102.0ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:16:00 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (3.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"components"} missing required keys: [:id]):
+    22:                           <i class="fa fa-cogs"></i>
+    23:                           <span>Modules</span>
+    24:                       </a>
+    25:                      <%= link_to(component_path) do %>
+    26:                         <i class="fa fa-dashboard"></i>
+    27:                         <span>Modules</span>
+    28:                       <% end %>
+  app/views/layouts/_sidebar.html.erb:25:in `_app_views_layouts__sidebar_html_erb___4602480359042176451_69902375359960'
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb___3574247067967826316_69902505619880'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.3ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (948.4ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:18:12 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (3.2ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `stringify_keys' for "/":String):
+     6:               	  <p class="centered"><a href="profile.html"><img src="#" class="img-circle" width="60"></a></p>
+     7:               	  	
+     8:                   <li class="mt">
+     9:                       <%= link_to("r", root_path) do %>
+    10:                         <i class="fa fa-dashboard"></i>
+    11:                         <span>Home</span>
+    12:                       <% end %>
+  app/views/layouts/_sidebar.html.erb:9:in `_app_views_layouts__sidebar_html_erb___4602480359042176451_69902355265960'
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb___3574247067967826316_69902505619880'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.2ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (35.5ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:18:57 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (1.6ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/css/bootstrap.css.map" for 190.5.120.195 at 2015-07-05 08:18:58 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/assets/css/bootstrap.css.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (14.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (117.8ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:18:58 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:00 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:00 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/css/bootstrap.css.map" for 190.5.120.195 at 2015-07-05 08:19:00 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/assets/css/bootstrap.css.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (11.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (95.3ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:05 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:05 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:08 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:08 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:09 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:09 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/css/bootstrap.css.map" for 190.5.120.195 at 2015-07-05 08:19:14 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/assets/css/bootstrap.css.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (11.3ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (93.9ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:23 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:19:23 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/css/bootstrap.css.map" for 190.5.120.195 at 2015-07-05 08:19:23 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/assets/css/bootstrap.css.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (12.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (98.5ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:21:06 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (12.4ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined local variable or method `home_path' for #<#<Class:0x007f26e401d2d8>:0x007f26d2507738>):
+     6:               	  <p class="centered"><a href="profile.html"><img src="#" class="img-circle" width="60"></a></p>
+     7:               	  	
+     8:                   <li class="mt">
+     9:                     <%= link_to("home", home_path) do %>
+    10:                         <i class="fa fa-dashboard"></i>
+    11:                         <span>Home</span>
+    12:                       <% end %>
+  app/views/layouts/_sidebar.html.erb:9:in `_app_views_layouts__sidebar_html_erb___4602480359042176451_69902357019840'
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb___3574247067967826316_69902505619880'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.7ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:21:40 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (2.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `stringify_keys' for "/":String):
+     6:               	  <p class="centered"><a href="profile.html"><img src="#" class="img-circle" width="60"></a></p>
+     7:               	  	
+     8:                   <li class="mt">
+     9:                     <%= link_to("home", root_path) do %>
+    10:                         <i class="fa fa-dashboard"></i>
+    11:                         <span>Home</span>
+    12:                       <% end %>
+  app/views/layouts/_sidebar.html.erb:9:in `_app_views_layouts__sidebar_html_erb___4602480359042176451_69902361437760'
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb___3574247067967826316_69902505619880'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.1ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (41.8ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:22:28 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (3.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (No route matches {:action=>"index", :controller=>"root"}):
+     6:               	  <p class="centered"><a href="profile.html"><img src="#" class="img-circle" width="60"></a></p>
+     7:               	  	
+     8:                   <li class="mt">
+     9:                     <%= link_to(controller: "root") do %>
+    10:                         <i class="fa fa-dashboard"></i>
+    11:                         <span>Home</span>
+    12:                       <% end %>
+  app/views/layouts/_sidebar.html.erb:9:in `_app_views_layouts__sidebar_html_erb___4602480359042176451_69902383054060'
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb___3574247067967826316_69902505619880'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.3ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.5ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:22:54 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (1.2ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/css/bootstrap.css.map" for 190.5.120.195 at 2015-07-05 08:22:56 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/assets/css/bootstrap.css.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (27.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (187.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:22:56 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:22:57 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:22:58 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/css/bootstrap.css.map" for 190.5.120.195 at 2015-07-05 08:22:58 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/assets/css/bootstrap.css.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (12.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (103.1ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:23:34 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (3.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (No route matches {:action=>"index", :controller=>"engine"}):
+    13:                   </li>
+    14: 
+    15:                   <li class="sub-menu">
+    16:                     <%= link_to(controller: "engine") do %>
+    17:                         <i class="fa fa-desktop"></i>
+    18:                         <span>Engines</span>
+    19:                       <% end %>
+  app/views/layouts/_sidebar.html.erb:16:in `_app_views_layouts__sidebar_html_erb___4602480359042176451_69902525445160'
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb___3574247067967826316_69902505619880'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:24:07 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (1.1ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/css/bootstrap.css.map" for 190.5.120.195 at 2015-07-05 08:24:08 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/assets/css/bootstrap.css.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (13.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (105.9ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:24:08 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:27:09 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (16.4ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined local variable or method `uploads_path' for #<#<Class:0x007f26e401d2d8>:0x007f26d2310628>):
+    35:                      <% end %>
+    36:                   </li>
+    37:                   <li class="sub-menu">
+    38:                      <%= link_to(uploads_path) do %>
+    39:                         <i class="fa fa-th"></i>
+    40:                         <span>Upload</span>
+    41:                      <% end %>
+  app/views/layouts/_sidebar.html.erb:38:in `_app_views_layouts__sidebar_html_erb___4602480359042176451_69902355989540'
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb___3574247067967826316_69902505619880'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (38.3ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:30:52 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (1.8ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:30:53 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/css/bootstrap.css.map" for 190.5.120.195 at 2015-07-05 08:30:53 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/assets/css/bootstrap.css.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:29:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (13.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (121.8ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:30:58 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:30:59 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/engines" for 190.5.120.195 at 2015-07-05 08:31:00 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngine Load (0.3ms)[0m  SELECT "engines".* FROM "engines"
+  Rendered engines/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 230ms (Views: 8.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/engines" for 190.5.120.195 at 2015-07-05 08:31:00 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  Rendered engines/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/components" for 190.5.120.195 at 2015-07-05 08:31:03 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ComponentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mComponent Load (0.3ms)[0m  SELECT "components".* FROM "components"
+  Rendered components/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+Completed 200 OK in 41ms (Views: 7.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/components" for 190.5.120.195 at 2015-07-05 08:31:04 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ComponentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mComponent Load (0.3ms)[0m  SELECT "components".* FROM "components"
+  Rendered components/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets" for 190.5.120.195 at 2015-07-05 08:31:05 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AssetsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAsset Load (0.2ms)[0m  SELECT "assets".* FROM "assets"
+  Rendered assets/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+Completed 200 OK in 21ms (Views: 8.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets" for 190.5.120.195 at 2015-07-05 08:31:05 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AssetsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAsset Load (0.2ms)[0m  SELECT "assets".* FROM "assets"
+  Rendered assets/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/games" for 190.5.120.195 at 2015-07-05 08:31:06 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mGame Load (0.3ms)[0m  SELECT "games".* FROM "games"
+  Rendered games/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 20ms (Views: 7.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/games" for 190.5.120.195 at 2015-07-05 08:31:07 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mGame Load (0.2ms)[0m  SELECT "games".* FROM "games"
+  Rendered games/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/engines" for 190.5.120.195 at 2015-07-05 08:31:09 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  Rendered engines/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/engines" for 190.5.120.195 at 2015-07-05 08:31:09 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  Rendered engines/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:31:10 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 190.5.120.195 at 2015-07-05 08:31:11 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_top.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/engines" for 190.5.120.195 at 2015-07-05 08:31:12 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  Rendered engines/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/engines" for 190.5.120.195 at 2015-07-05 08:31:12 +0000
+Cannot render console from 190.5.120.195! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EnginesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mEngine Load (0.2ms)[0m  SELECT "engines".* FROM "engines"
+  Rendered engines/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_top.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.4ms)
