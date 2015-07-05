@@ -24,7 +24,7 @@ Component.create(engine_id: 1, name: "Final boss: Hard", image: "/tests/componen
 Component.create(engine_id: 1, name: "Final boss: Hell", image: "/tests/component/2.png", description: "much wow", license_id: 1, finish: false)
 Component.create(engine_id: 1, name: "Final boss: Lunatic", image: "/tests/component/3.png", description: "very component", license_id: 1, finish: true)
 Component.create(engine_id: 2, name: "Ultimate battlefield", image: "/tests/component/4.png", description: "much battlefield", license_id: 2, finish: false)
-Component.create(engine_id: 4, name: "High school dreams", image: "/tests/component/5.png", description: "amaze", license_id: 2, finish: true)
+Component.create(engine_id: 4, name: "High school dreams", image: "/tests/component/5.png", description: "amaze", license_id: 2, , finish: true)
 Component.create(engine_id: 4, name: "Love scene", image: "/tests/component/6.png", description: "such scene", license_id: 1, finish: false)
 
 Resource.create(component_id: 1, category_id: 1, name: 'Menu sfx', download: 'this is not set', license_id: 1)
