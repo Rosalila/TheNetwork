@@ -2,12 +2,12 @@
 
 <p>
   <strong>Component:</strong>
-  <%= @asset.component_id %>
+  <%= @asset.component.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @asset.category_id %>
+  <%= @asset.category.name %>
 </p>
 
 <p>
@@ -17,7 +17,34 @@
 
 <p>
   <strong>License:</strong>
-  <%= @asset.license_id %>
+  <%= @asset.license.name %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <br/>
+  <% @asset.asset_comments.each do |comment| %>
+    <%= comment.comment %>
+    <br/>
+  <% end %>
+</p>
+
+<p>
+  <strong>Ratings:</strong>
+  <br/>
+  <% @asset.asset_ratings.each do |rating| %>
+    <%= rating.rating %>
+    <br/>
+  <% end %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <br/>
+  <% @asset.asset_tags.each do |tag| %>
+    <%= tag.tag.name %>
+    <br/>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_asset_path(@asset) %> |
