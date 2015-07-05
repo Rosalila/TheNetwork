@@ -18,7 +18,7 @@ class ComponentCommentsControllerTest < ActionController::TestCase
 
   test "should create component_comment" do
     assert_difference('ComponentComment.count') do
-      post :create, component_comment: { comment: @component_comment.comment, compenent_id: @component_comment.compenent_id, user_id: @component_comment.user_id }
+      post :create, component_comment: { comment: @component_comment.comment, component_id: @component_comment.component_id, user_id: @component_comment.user_id }
     end
 
     assert_redirected_to component_comment_path(assigns(:component_comment))
@@ -35,7 +35,7 @@ class ComponentCommentsControllerTest < ActionController::TestCase
   end
 
   test "should update component_comment" do
-    patch :update, id: @component_comment, component_comment: { comment: @component_comment.comment, compenent_id: @component_comment.compenent_id, user_id: @component_comment.user_id }
+    patch :update, id: @component_comment, component_comment: { comment: @component_comment.comment, component_id: @component_comment.component_id, user_id: @component_comment.user_id }
     assert_redirected_to component_comment_path(assigns(:component_comment))
   end
 

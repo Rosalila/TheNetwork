@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asset:</strong>
+  <%= @asset_rating.asset_id %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @asset_rating.rating %>
+</p>
+
+<%= link_to 'Edit', edit_asset_rating_path(@asset_rating) %> |
+<%= link_to 'Back', asset_ratings_path %>

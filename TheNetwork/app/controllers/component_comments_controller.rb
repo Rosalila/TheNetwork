@@ -69,6 +69,6 @@ class ComponentCommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def component_comment_params
-      params.require(:component_comment).permit(:compenent_id, :user_id, :comment)
+      params.require(:component_comment).permit(:component_id, :user_id, :comment)
     end
 end

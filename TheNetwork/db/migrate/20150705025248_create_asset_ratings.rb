@@ -1,6 +1,6 @@
-class CreateAssetsRatings < ActiveRecord::Migration
+class CreateAssetRatings < ActiveRecord::Migration
   def change
-    create_table :assets_ratings do |t|
+    create_table :asset_ratings do |t|
       t.integer :asset_id
       t.integer :rating
 
