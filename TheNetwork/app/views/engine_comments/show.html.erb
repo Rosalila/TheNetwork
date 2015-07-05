@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Engine:</strong>
+  <%= @engine_comment.engine_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @engine_comment.user_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @engine_comment.comment %>
+</p>
+
+<%= link_to 'Edit', edit_engine_comment_path(@engine_comment) %> |
+<%= link_to 'Back', engine_comments_path %>

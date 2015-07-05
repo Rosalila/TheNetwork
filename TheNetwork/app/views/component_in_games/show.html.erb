@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Component:</strong>
+  <%= @component_in_game.component_id %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @component_in_game.game_id %>
+</p>
+
+<%= link_to 'Edit', edit_component_in_game_path(@component_in_game) %> |
+<%= link_to 'Back', component_in_games_path %>

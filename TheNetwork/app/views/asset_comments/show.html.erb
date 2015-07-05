@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asset:</strong>
+  <%= @asset_comment.asset_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @asset_comment.user_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @asset_comment.comment %>
+</p>
+
+<%= link_to 'Edit', edit_asset_comment_path(@asset_comment) %> |
+<%= link_to 'Back', asset_comments_path %>

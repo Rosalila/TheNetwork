@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Asset Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asset</th>
+      <th>Tag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asset_tags.each do |asset_tag| %>
+      <tr>
+        <td><%= asset_tag.asset_id %></td>
+        <td><%= asset_tag.tag_id %></td>
+        <td><%= link_to 'Show', asset_tag %></td>
+        <td><%= link_to 'Edit', edit_asset_tag_path(asset_tag) %></td>
+        <td><%= link_to 'Destroy', asset_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Asset tag', new_asset_tag_path %>

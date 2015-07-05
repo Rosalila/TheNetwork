@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Component:</strong>
+  <%= @component_rating.component_id %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @component_rating.rating %>
+</p>
+
+<%= link_to 'Edit', edit_component_rating_path(@component_rating) %> |
+<%= link_to 'Back', component_ratings_path %>
