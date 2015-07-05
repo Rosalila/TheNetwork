@@ -1,2 +1,0 @@
-module AssetsRatingsHelper
-end

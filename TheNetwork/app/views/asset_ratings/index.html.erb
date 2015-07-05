@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Asset Ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asset</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asset_ratings.each do |asset_rating| %>
+      <tr>
+        <td><%= asset_rating.asset_id %></td>
+        <td><%= asset_rating.rating %></td>
+        <td><%= link_to 'Show', asset_rating %></td>
+        <td><%= link_to 'Edit', edit_asset_rating_path(asset_rating) %></td>
+        <td><%= link_to 'Destroy', asset_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Asset rating', new_asset_rating_path %>

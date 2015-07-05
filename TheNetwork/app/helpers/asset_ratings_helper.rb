@@ -1,0 +1,2 @@
+module AssetRatingsHelper
+end

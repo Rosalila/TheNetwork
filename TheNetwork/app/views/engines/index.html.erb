@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
+<!--main content start-->
+      <section id="main-content">
+
+        <p id="notice"><%= notice %></p>
 
 <h1>Listing Engines</h1>
+<h2>Test</h2>
 
 <table>
   <thead>
@@ -31,3 +35,94 @@
 <br>
 
 <%= link_to 'New Engine', new_engine_path %>
+
+          <section class="wrapper site-min-height">
+            <section class="serach">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                          <div class="input-group" id="adv-search">
+                              <input type="text" class="form-control" placeholder="Search for snippets" />
+                              <div class="input-group-btn">
+                                  <div class="btn-group" role="group">
+                                      <div class="dropdown dropdown-lg">
+                                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                          <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                              <form class="form-horizontal" role="form">
+                                                <div class="form-group">
+                                                  <label for="filter">Filter by</label>
+                                                  <select class="form-control">
+                                                      <option value="0" selected>All Snippets</option>
+                                                      <option value="1">Featured</option>
+                                                      <option value="2">Most popular</option>
+                                                      <option value="3">Top rated</option>
+                                                      <option value="4">Most commented</option>
+                                                  </select>
+                                                </div>
+                                                <div class="form-group">
+                                                  <label for="contain">Author</label>
+                                                  <input class="form-control" type="text" />
+                                                </div>
+                                                <div class="form-group">
+                                                  <label for="contain">Contains the words</label>
+                                                  <input class="form-control" type="text" />
+                                                </div>
+                                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                              </form>
+                                          </div>
+                                      </div>
+                                      <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+              </div>
+
+              <div class="container">
+                <div class="tags">
+                    <! -- LABELS -->
+                    <div class="show">
+                      <h4><i class="fa fa-angle-right"></i> Tags:</h4>
+                      <span class="label label-default">test1</span>
+                      <span class="label label-primary">test2</span>
+                      <span class="label label-success">test3</span>
+                      <span class="label label-info">test4</span>
+                      <span class="label label-warning">test5</span>
+                      <span class="label label-danger">test6</span>
+                    </div><!-- /showback -->
+                </div>
+              </div>
+            </section>
+            <div class="row mt">
+              <div class="col-lg-12">
+              
+                <! -- 1st ROW OF PANELS -->
+                <div class="row">
+                  <! -- Blog Panel -->
+                  <% @engines.each do |engine| %>
+                    <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                      <div class="content-panel pn">
+                        <div id="blog-bg">
+                          
+                          <div class="blog-title"><%= engine.name %></div>
+                        </div>
+                        <div class="blog-text">
+                          <p><%= engine.description %><a href="#"> <%= link_to 'Show', engine %></a></p>
+                          <% engine.engine_tags.each do |t| %>
+                          <span class="label label-default label-pane"><%=t.tag.name%></span>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div><!-- /col-md-4-->
+                  <% end %>
+                </div><! --/END 1ST ROW OF PANELS -->
+
+              </div>
+            </div>
+      
+          </section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+
+      <!--main content end-->

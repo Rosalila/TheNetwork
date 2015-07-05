@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150704233639) do
+ActiveRecord::Schema.define(version: 20150705035911) do
 
   create_table "asset_comments", force: :cascade do |t|
     t.integer  "asset_id"
     t.integer  "user_id"
     t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "asset_ratings", force: :cascade do |t|
+    t.integer  "asset_id"
+    t.integer  "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,13 +42,7 @@ ActiveRecord::Schema.define(version: 20150704233639) do
     t.string   "license_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "assets_ratings", force: :cascade do |t|
-    t.integer  "asset_id"
-    t.integer  "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -51,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150704233639) do
   end
 
   create_table "component_comments", force: :cascade do |t|
-    t.integer  "compenent_id"
+    t.integer  "component_id"
     t.integer  "user_id"
     t.text     "comment"
     t.datetime "created_at",   null: false
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150704233639) do
     t.string   "license_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "engine_id"
   end
 
   create_table "credits", force: :cascade do |t|
@@ -174,9 +176,9 @@ ActiveRecord::Schema.define(version: 20150704233639) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.integer  "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|
