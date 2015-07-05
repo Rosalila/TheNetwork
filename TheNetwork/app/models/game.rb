@@ -6,4 +6,5 @@ class Game < ActiveRecord::Base
   has_many :component_in_games
   belongs_to :engine
   belongs_to :license
+  mount_uploader :image, FileUploader
 end
