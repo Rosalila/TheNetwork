@@ -1,6 +1,7 @@
 class EnginesController < ApplicationController
   before_action :set_engine, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  
   # GET /engines
   # GET /engines.json
   def index

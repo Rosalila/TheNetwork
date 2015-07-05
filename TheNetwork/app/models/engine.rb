@@ -5,6 +5,4 @@ class Engine < ActiveRecord::Base
   has_many :components
   belongs_to :license
   mount_uploader :image, FileUploader
-  
-  resourcify
 end

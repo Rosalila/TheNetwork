@@ -1,6 +1,7 @@
 class ComponentsController < ApplicationController
   before_action :set_component, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  
   # GET /components
   # GET /components.json
   def index
@@ -27,7 +28,7 @@ class ComponentsController < ApplicationController
     @component = Component.new(component_params)
 
     @component.image = params[:image]
-	@component.finish = false
+	  @component.finish = false
 
     respond_to do |format|
       if @component.save
