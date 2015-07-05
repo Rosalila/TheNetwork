@@ -44,10 +44,11 @@ body {
 
 .label-pane{
     position: relative;
-    bottom: 0px;
-}
+    bottom: 3%;
+    margin-left: 2%;
+    }
 
-.search{
+.serach{
     position: relative;
-    top: -15px;
+    top: 15px;
 }
