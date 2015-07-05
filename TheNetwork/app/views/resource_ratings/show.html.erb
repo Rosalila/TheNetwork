@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resource:</strong>
+  <%= @resource_rating.resource_id %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @resource_rating.rating %>
+</p>
+
+<%= link_to 'Edit', edit_resource_rating_path(@resource_rating) %> |
+<%= link_to 'Back', resource_ratings_path %>

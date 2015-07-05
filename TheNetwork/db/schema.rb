@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150705035911) do
+ActiveRecord::Schema.define(version: 20150705094401) do
 
   create_table "asset_comments", force: :cascade do |t|
     t.integer  "asset_id"
@@ -173,6 +173,40 @@ ActiveRecord::Schema.define(version: 20150705035911) do
     t.string   "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "resource_comments", force: :cascade do |t|
+    t.integer  "resource_id"
+    t.integer  "user_id"
+    t.text     "comment"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "resource_ratings", force: :cascade do |t|
+    t.integer  "resource_id"
+    t.integer  "rating"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "resource_tags", force: :cascade do |t|
+    t.integer  "resource_id"
+    t.integer  "tag_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image"
+    t.integer  "component_id"
+    t.integer  "category_id"
+    t.string   "download"
+    t.string   "license_id"
+    t.string   "video"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "tags", force: :cascade do |t|
