@@ -2010,6 +2010,21 @@ label {
   border-color: #2775e2;
 }
 
+.btn-google {
+  color: #fff;
+  background-color: #5193ea;
+  border-color: #2775e2;
+}
+.btn-google:hover,
+.btn-google:focus,
+.btn-google:active,
+.btn-facebook.active,
+.open .dropdown-toggle.btn-google {
+  color: #fff;
+  background-color: #B40404;
+  border-color: #B40404;
+}
+
 .btn-twitter {
   color: #fff;
   background-color: #44ccfe;
