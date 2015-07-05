@@ -26,6 +26,9 @@ class ResourcesController < ApplicationController
   def create
     @resource = Resource.new(resource_params)
 
+    @resource.image = params[:image]
+    @resource.download = params[:download]
+
     respond_to do |format|
       if @resource.save
         format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
