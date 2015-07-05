@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset=utf-8 />
@@ -10,12 +10,13 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
 <script type="text/javascript">
+//<![CDATA[
 $(document).ready(function(){
 
 	$("#jquery_jplayer_1").jPlayer({
 		ready: function (event) {
 			$(this).jPlayer("setMedia", {
-				mp3: "/sound/Dr_Mario_Funky_Pills_OC_ReMix.mp3"
+				mp3: "http://jplayer.org/audio/mp3/TSP-09-The_werewolf_song.mp3"
 			});
 		},
 		swfPath: "js",
@@ -28,6 +29,7 @@ $(document).ready(function(){
 		volume: 1
 	});
 });
+//]]>
 </script>
 </head>
 <body>

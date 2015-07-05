@@ -40,8 +40,8 @@
   background-color: #3a2a45; }
 
 .jp-audio {
-  width: 201px;
-  padding: 20px; }
+  width: 100%;
+  padding: 0px; }
 
 .jp-audio-stream {
   width: 101px;
@@ -106,16 +106,18 @@
   overflow: hidden; }
 
 .jp-audio .jp-controls-holder {
-  height: 80px; }
+  height: 42px;
+	padding: 0px;
+}
 
 .jp-audio-stream .jp-controls-holder {
   height: 50px; }
 
 .jp-controls {
   background: url("../image/jplayer.pink.flag.jpg") 0 0 no-repeat;
-  padding: 1px 0 2px 1px;
+  padding: 0px 0 2px 1px;
   overflow: hidden;
-  width: 201px;
+  width: 100%;
   height: 34px; }
 
 .jp-audio .jp-controls,
@@ -283,9 +285,9 @@ div.jp-seeking-bg {
 
 .jp-progress {
   background: url("../image/jplayer.pink.flag.jpg") 0px -240px no-repeat;
-  width: 197px;
+  width: 99%;
   height: 13px;
-  padding: 0 2px 2px 2px;
+  padding: 0 2px 2px 8px;
   margin-bottom: 4px;
   overflow: hidden; }
 
