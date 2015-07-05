@@ -1,4 +1,6 @@
-﻿.jp-audio {
+﻿
+
+.jp-audio {
   position: relative;
   font-family: 'Source Sans Pro', sans-serif;
   text-align: left;
@@ -11,7 +13,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #7e3400;
+  color: #000000;
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,7 +26,7 @@
   top: 0;
   width: 42px;
   height: 100%;
-  background-color: #ff6a00;
+  background-color: #424a5d;
 }
 .jp-audio .jp-controls a {
   text-decoration: none;
@@ -33,10 +35,10 @@
   line-height: 42px;
   text-align: center;
   cursor: pointer;
-  color: #7e3400;
+  color: #ffffff;
 }
 .jp-audio .jp-controls a:hover {
-  color: #ffd850;
+  color: #3399FF;
 }
 .jp-audio .jp-controls a:before {
   display: inline-block;
@@ -58,7 +60,7 @@
   left: 42px;
   right: 0;
   height: 100%;
-  background-color: #ffd850;
+  background-color: #CCCCFF;
 }
 .jp-audio .jp-progress .jp-seek-bar {
   position: absolute;
@@ -73,7 +75,7 @@
   left: 0;
   width: 0;
   height: 100%;
-  background-color: #ffa96c;
+  background-color: #68dff0;
 }
 .jp-audio .jp-current-time {
   position: absolute;
@@ -98,7 +100,18 @@
   font-size: 16px;
   text-align: center;
   display: none;
-  color: #ffd850;
-  background-color: #b28282;
+  color: #66CCFF;
+  background-color: #99FF99;
 }
 /*# sourceMappingURL=jplayer.metro-fire.css.map */
+#wrapper{
+    position:relative;
+    height:auto;
+    min-height:100%;
+}
+#footer{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+}
