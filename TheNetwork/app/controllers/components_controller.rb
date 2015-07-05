@@ -26,6 +26,8 @@ class ComponentsController < ApplicationController
   def create
     @component = Component.new(component_params)
 
+    @component.image = params[:image]
+
     respond_to do |format|
       if @component.save
         format.html { redirect_to @component, notice: 'Component was successfully created.' }
