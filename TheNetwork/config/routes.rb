@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'finish/:id' => 'components#finish'
+  get 'engine_games/:id' => 'games#engine_games'
   resources :resource_tags
   resources :resource_comments
   resources :resource_ratings
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   resources :asset_ratings
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
-  root 'home#index'
+  root 'engines#index'
 
   resources :users
   resources :tags

@@ -7,6 +7,10 @@ class GamesController < ApplicationController
     @games = Game.all
   end
 
+  def engine_games
+    @games = Game.where(:engine_id => params[:id])
+  end
+
   # GET /games/1
   # GET /games/1.json
   def show
