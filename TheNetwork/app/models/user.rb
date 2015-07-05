@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable 
   enum role: [:user, :admin]
   after_initialize :set_default_role, :if => :new_record?
+  has_many :credits
 
   def set_default_role
     #self.add_role ||= :user
