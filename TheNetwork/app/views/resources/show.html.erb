@@ -1,39 +1,50 @@
-<p id="notice"><%= notice %></p>
+          <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Information</h3>
+            <hr>
+        <div class="row mt">
+          <div class="col-lg-6 moreHeight">
+            <div class="project-wrapper">
+                        <div class="project">
+                            <div class="photo-wrapper">
+                                <div class="photo">
+                                  <a class="fancybox" href="assets/img/portfolio/port04.jpg"><img class="img-responsive" src="../assets/img/portfolio/port04.jpg" alt=""></a>
+                                </div>
+                                <div class="overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+          </div><!-- col-lg-4 -->
+        <!-- Information Here -->
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <!-- Description Here -->
+              <h1><%= @resource.name %></h1>
+              <h3>Licencia: <%= @resource.license.name %></h3>
+              <p style = "font-family: Arial; font-size: 20px"><%= @resource.category.name %></p><br>
+              <div class="ec-stars-wrapper">
+              <% suma = 0 %>
+              <% contador = 0 %>
+                <% @resource.resource_ratings.each do |rating| %>
+                  <% suma+= rating.rating %>
+                  <% contador+=1 %>
+                <% end %>
+                <% promedio = 0 %>
+                <% if contador > 0 %>
+                  <% promedio = suma / contador %>
+                <% end %>
+                <% contador = 0 %>
+                <% promedio.times do%>
+                  <% contador+=1 %>
+                  <ay href="#" data-value=<% contador.to_s %> >&#9733;</ay>
+                <% end %>
+                <% resto = 5 - promedio %>
+                <% resto.times do%>
+                  <ab href="#" data-value="1">&#9733;</ab>
+                <% end %>
+              </div>
+              <label><%=promedio %>/5</label><br>
+              <label>general rating</label><br>
+              <a href="<%=@resource.download%>"><button type="button" class="btn btn-primary">Download</button></a>
+            </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @resource.name %>
-</p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @resource.image %>
-</p>
-
-<p>
-  <strong>Component:</strong>
-  <%= @resource.component_id %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @resource.category_id %>
-</p>
-
-<p>
-  <strong>Download:</strong>
-  <%= @resource.download %>
-</p>
-
-<p>
-  <strong>License:</strong>
-  <%= @resource.license_id %>
-</p>
-
-<p>
-  <strong>Video:</strong>
-  <%= @resource.video %>
-</p>
-
-<%= link_to 'Edit', edit_resource_path(@resource) %> |
-<%= link_to 'Back', resources_path %>
+        </div><!-- /row --><br>

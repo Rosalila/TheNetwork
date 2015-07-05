@@ -1,38 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @component.name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @component.image %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @component.description %>
-</p>
-
-<p>
-  <strong>License:</strong>
-  <%= @component.license.name %>
-</p>
-
-<%= link_to 'Edit', edit_component_path(@component) %> |
-<%= link_to 'Back', components_path %>
-
-
-
-<% @component.resources.each do |resource| %>
-  <%= resource.id %>  
-<% end %>
-
-fsd
-
-
-
           <section class="wrapper site-min-height">
             <h3><i class="fa fa-angle-right"></i> Information</h3>
             <hr>
@@ -155,6 +122,26 @@ fsd
           <div class="row">
             
             <! -- Spotify Panel -->
+
+
+<% @component.resources.each do |resource| %>
+            <div class="col-lg-4 col-md-4 col-sm-4 mb">
+              <div class="content-panel pn">
+                <div id="spotify">
+                <div class="col-xs-4 col-xs-offset-8">
+                      <a href="/resources/<%= resource.id %>"><i class="glyphicon glyphicon-play"></i></a>
+                    </div>
+                    <div class="sp-title">
+                      <h3><%=resource.name%></h3>
+                    </div>    
+                </div>
+                <p class="followers"><i class="fa fa-user"></i> 576,000 FOLLOWERS</p>
+                <span class="label label-default label-pane">test1</span>
+              </div>
+            </div><! --/col-md-4-->  
+<% end %>
+
+<!--
             <div class="col-lg-4 col-md-4 col-sm-4 mb">
               <div class="content-panel pn">
                 <div id="spotify">
@@ -168,10 +155,11 @@ fsd
                 <p class="followers"><i class="fa fa-user"></i> 576,000 FOLLOWERS</p>
                 <span class="label label-default label-pane">test1</span>
               </div>
-            </div><! --/col-md-4-->
+            </div>
 
             <div class="col-md-4 col-sm-4 mb">
-              <!-- REVENUE PANEL -->
+
+
               <div class="green-panel pn">
                 <div class="green-header">
                   <h5>REVENUE</h5>
@@ -181,9 +169,8 @@ fsd
                 </div>
                 <p class="mt"><b>$ 17,980</b><br/>Month Income</p>
               </div>
-            </div><!-- /col-md-4 -->
+            </div>
 
-            <! -- Youtube Panel -->
               <div class="col-lg-4 col-md-4 col-sm-4 mb">
                 <div class="content-panel pn">
                   <div id="youtube">
@@ -195,10 +182,10 @@ fsd
                   <p class="followers"><i class="fa fa-user"></i> 576,000 FOLLOWERS</p>
                   <span class="label label-default label-pane">test1</span>
                 </div>
-              </div><! --/col-md-4-->
+              </div>
 
-          </div><! -- END ROW OF PANELS -->
-
+          </div>
+-->
           		</div>
           	</div>
 			
