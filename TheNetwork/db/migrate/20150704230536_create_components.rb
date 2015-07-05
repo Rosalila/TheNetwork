@@ -4,7 +4,7 @@ class CreateComponents < ActiveRecord::Migration
       t.string :name
       t.string :image
       t.text :description
-      t.string :license_id
+      t.integer :license_id
 
       t.timestamps null: false
     end

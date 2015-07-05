@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150705094401) do
     t.integer  "component_id"
     t.integer  "category_id"
     t.string   "download"
-    t.string   "license_id"
+    t.integer  "license_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "name"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20150705094401) do
     t.string   "name"
     t.string   "image"
     t.text     "description"
-    t.string   "license_id"
+    t.integer  "license_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "engine_id"
@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 20150705094401) do
     t.integer  "component_id"
     t.integer  "category_id"
     t.string   "download"
-    t.string   "license_id"
+    t.integer  "license_id"
     t.string   "video"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
