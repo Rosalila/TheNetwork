@@ -3,8 +3,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable 
   #enum role: [:user, :admin]
   after_initialize :set_default_role, :if => :new_record?
+<<<<<<< HEAD
   delegate :can?, :cannot?, :to => :ability
   #before_validation :make_first_user_admin!
+=======
+  has_many :credits
+>>>>>>> 29df5a19c2978137f94046e06d147cab3eb2774f
 
   def set_default_role
     if User.count == 0
