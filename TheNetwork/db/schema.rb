@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150705033933) do
+ActiveRecord::Schema.define(version: 20150705035911) do
 
   create_table "asset_comments", force: :cascade do |t|
     t.integer  "asset_id"
@@ -176,9 +176,9 @@ ActiveRecord::Schema.define(version: 20150705033933) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.integer  "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|
