@@ -1420,11 +1420,11 @@ PANELS CONFIGURATIONS
 }
 .blog-title {
 	background: rgba(0,0,0,0.5);
-	bottom: 100px;
+	position: absolute;
+    bottom: 120px;
 	padding: 6px;
 	color: white;
 	font-weight: 700;
-	position: absolute;
 	display: block;
 	width: 120px;
 }
