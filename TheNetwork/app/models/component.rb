@@ -4,5 +4,6 @@ class Component < ActiveRecord::Base
   has_many :component_in_games
   belongs_to :license
   has_many :component_ratings
+  has_many :resources
   mount_uploader :image, FileUploader
 end
