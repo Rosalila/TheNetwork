@@ -15,7 +15,7 @@
     <% @engine_tags.each do |engine_tag| %>
       <tr>
         <td><%= engine_tag.engine_id %></td>
-        <td><%= engine_tag.tag_id %></td>
+        <td><%= engine_tag.tag.name %></td>
         <td><%= link_to 'Show', engine_tag %></td>
         <td><%= link_to 'Edit', edit_engine_tag_path(engine_tag) %></td>
         <td><%= link_to 'Destroy', engine_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
