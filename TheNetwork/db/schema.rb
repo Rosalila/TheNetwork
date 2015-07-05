@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150705094401) do
+ActiveRecord::Schema.define(version: 20150705114121) do
 
   create_table "asset_comments", force: :cascade do |t|
     t.integer  "asset_id"
@@ -93,8 +93,9 @@ ActiveRecord::Schema.define(version: 20150705094401) do
   create_table "credits", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "asset_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "resource_id"
   end
 
   create_table "engine_comments", force: :cascade do |t|
@@ -164,8 +165,9 @@ ActiveRecord::Schema.define(version: 20150705094401) do
     t.integer  "asset_id"
     t.integer  "user_id"
     t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "resource_id"
   end
 
   create_table "licenses", force: :cascade do |t|
