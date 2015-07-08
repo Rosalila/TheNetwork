@@ -15134,3 +15134,32 @@ Processing by GamesController#index as HTML
   Rendered layouts/_sidebar.html.erb (1.0ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 38ms (Views: 26.4ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2015-07-07 21:26:50 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GamesController#index as HTML
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mGame Load (0.3ms)[0m  [1mSELECT "games".* FROM "games"[0m
+  [1m[35mLicense Load (0.3ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mGameTag Load (0.3ms)[0m  [1mSELECT "game_tags".* FROM "game_tags" WHERE "game_tags"."game_id" = ?[0m  [["game_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mLicense Load (0.2ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mGameTag Load (0.2ms)[0m  SELECT "game_tags".* FROM "game_tags" WHERE "game_tags"."game_id" = ?  [["game_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mGameTag Load (0.1ms)[0m  SELECT "game_tags".* FROM "game_tags" WHERE "game_tags"."game_id" = ?  [["game_id", 3]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mGameTag Load (0.1ms)[0m  [1mSELECT "game_tags".* FROM "game_tags" WHERE "game_tags"."game_id" = ?[0m  [["game_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "licenses".* FROM "licenses" WHERE "licenses"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mGameTag Load (0.1ms)[0m  [1mSELECT "game_tags".* FROM "game_tags" WHERE "game_tags"."game_id" = ?[0m  [["game_id", 5]]
+  Rendered games/index.html.erb within layouts/application (126.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_top.html.erb (26.6ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 220ms (Views: 175.0ms | ActiveRecord: 6.2ms)
