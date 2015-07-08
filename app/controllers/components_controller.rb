@@ -35,11 +35,7 @@ class ComponentsController < ApplicationController
     @component = Component.new(component_params)
 
     @component.image = params[:image]
-<<<<<<< HEAD
-	  @component.finish = false
-=======
-#	@component.finish = false
->>>>>>> 29df5a19c2978137f94046e06d147cab3eb2774f
+  #	@component.finish = false
 
     respond_to do |format|
       if @component.save
