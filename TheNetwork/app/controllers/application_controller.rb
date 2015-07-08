@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   # before_action :authenticate_user! 
   layout :layout_by_resource
   
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Access denied."
+    redirect_to root_url
+  end
+  
   protected
 
   def layout_by_resource
