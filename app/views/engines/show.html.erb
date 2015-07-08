@@ -1,0 +1,174 @@
+<section id="main-content">
+          <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Information</h3>
+            <hr>
+        <div class="row mt">
+          <div class="col-lg-6 moreHeight">
+            <div class="project-wrapper">
+                        <div class="project">
+                            <div class="photo-wrapper">
+                                <div class="photo">
+                                  <a class="fancybox" href="assets/img/portfolio/port04.jpg"><img class="img-responsive" src="../assets/img/portfolio/port04.jpg" alt=""></a>
+                                </div>
+                                <div class="overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+          </div><!-- col-lg-4 -->
+
+        <!-- Information Here -->
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <!-- Description Here -->
+              <h1><%= @engine.name %></h1>
+              <h3>Licencia: <%= @engine.license.name %></h3>
+              <p style = "font-family: Arial; font-size: 20px"><%= @engine.description %></p><br>
+              <div class="ec-stars-wrapper">
+              <% suma = 0 %>
+              <% contador = 0 %>
+                <% @engine.engine_ratings.each do |rating| %>
+                  <% suma+= rating.rating %>
+                  <% contador+=1 %>
+                <% end %>
+                <% promedio = 0 %>
+                <% if contador > 0 %>
+                  <% promedio = suma / contador %>
+                <% end %>
+                <% contador = 0 %>
+                <% promedio.times do%>
+                  <% contador+=1 %>
+                  <ay href="#" data-value=<% contador.to_s %> >&#9733;</ay>
+                <% end %>
+                <% resto = 5 - promedio %>
+                <% resto.times do%>
+                  <ab href="#" data-value="1">&#9733;</ab>
+                <% end %>
+              </div>
+              <label><%=promedio %>/5</label><br>
+              <label>general rating</label><br>
+              <a href="/engine_games/<%=@engine.id%>"><button type="button" class="btn btn-primary">View Games</button></a>
+            </div>
+          
+        </div><!-- /row --><br>
+
+
+        <h3><i class="fa fa-angle-right"></i> Finished Modules</h3>
+        <hr>
+        <% @engine.components.each do |component| %>
+        <% next if component.finish == false %>
+          <div class="row mt">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+              <div class="project-wrapper">
+                          <div class="project">
+                              <div class="photo-wrapper">
+                                  <div class="photo">
+                                    <a class="fancybox" href="assets/img/portfolio/port05.jpg"><img class="img-responsive" src="../assets/img/portfolio/port05.jpg" alt=""></a>
+                                  </div>
+                                  <div class="overlay"></div>
+                              </div>
+                          </div>
+                      </div>
+            </div><!-- col-lg-4 -->
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <!-- Description Here -->
+              <h2>Modulo: <%=component.name%></h2>
+              <h4>License: <%=component.license.name%>
+              <p style = "font-family: Arial; font-size: 18px"><%=component.description%></p><br>
+              <p style = "font-family: Arial; font-size: 18px">Current State: <%=component.finish%></p>
+              <% if current_user.present? %>
+                <a href="/finish/<%= component.id %>" button type="button" class="btn btn-theme">Change</button></a><br>
+              <% end %>
+
+              <div class="ec-stars-wrapper">
+                <% suma = 0 %>
+                <% contador = 0 %>
+                <% component.component_ratings.each do |rating| %>
+                  <% suma+= rating.rating %>
+                  <% contador+=1 %>
+                <% end %>
+                <% promedio = 0 %>
+                <% if contador > 0 %>
+                  <% promedio = suma / contador %>
+                <% end %>
+                <% contador = 0 %>
+                <% promedio.times do%>
+                  <% contador+=1 %>
+                  <by href="#" data-value=<% contador.to_s %> >&#9733;</by>
+                <% end %>
+                <% resto = 5 - promedio %>
+                <% resto.times do%>
+                  <bb href="#" data-value="1">&#9733;</bb>
+                <% end %>
+              </div>
+              <label><%=promedio%>/5</label><br>
+              <label>module rating</label><br>
+              <a href="/components/<%=component.id%>"><button type="button" class="btn btn-primary">Read More</button></a>
+            </div>
+          
+          </div><!-- /row --><br>
+
+        <% end %>
+
+        <h3><i class="fa fa-angle-right"></i> In Progress Modules</h3>
+        <hr>
+        <% @engine.components.each do |component| %>
+        <% next if component.finish == true %>
+          <div class="row mt">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+              <div class="project-wrapper">
+                          <div class="project">
+                              <div class="photo-wrapper">
+                                  <div class="photo">
+                                    <a class="fancybox" href="assets/img/portfolio/port05.jpg"><img class="img-responsive" src="../assets/img/portfolio/port05.jpg" alt=""></a>
+                                  </div>
+                                  <div class="overlay"></div>
+                              </div>
+                          </div>
+                      </div>
+            </div><!-- col-lg-4 -->
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <!-- Description Here -->
+              <h2>Modulo: <%=component.name%></h2>
+              <h4>License: <%=component.license.name%>
+              <p style = "font-family: Arial; font-size: 18px"><%=component.description%></p><br>
+              <p style = "font-family: Arial; font-size: 18px">Current State: <%=component.finish%></p>
+              <% if current_user.present? %>
+                <a href="/finish/<%= component.id %>" button type="button" class="btn btn-theme">Change</button></a><br>
+              <% end %>
+
+              <div class="ec-stars-wrapper">
+                <% suma = 0 %>
+                <% contador = 0 %>
+                <% component.component_ratings.each do |rating| %>
+                  <% suma+= rating.rating %>
+                  <% contador+=1 %>
+                <% end %>
+                <% promedio = 0 %>
+                <% if contador > 0 %>
+                  <% promedio = suma / contador %>
+                <% end %>
+                <% contador = 0 %>
+                <% promedio.times do%>
+                  <% contador+=1 %>
+                  <by href="#" data-value=<% contador.to_s %> >&#9733;</by>
+                <% end %>
+                <% resto = 5 - promedio %>
+                <% resto.times do%>
+                  <bb href="#" data-value="1">&#9733;</bb>
+                <% end %>
+              </div>
+              <label><%=promedio%>/5</label><br>
+              <label>module rating</label><br>
+              <a href="/components/<%=component.id%>"><button type="button" class="btn btn-primary">Read More</button></a>
+            </div>
+          
+          </div><!-- /row --><br>
+
+        <% end %>
+        
+
+        <!-- Information Here -->
+
+        </section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
