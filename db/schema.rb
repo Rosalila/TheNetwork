@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150705172625) do
+ActiveRecord::Schema.define(version: 20150709005017) do
 
   create_table "asset_comments", force: :cascade do |t|
     t.integer  "asset_id"
@@ -177,6 +177,24 @@ ActiveRecord::Schema.define(version: 20150705172625) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "cid"
+    t.date     "birthday"
+    t.string   "sex"
+    t.string   "tel"
+    t.string   "address"
+    t.string   "tagline"
+    t.text     "introduction"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "resource_comments", force: :cascade do |t|
     t.integer  "resource_id"
