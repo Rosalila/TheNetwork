@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rename'
+
 gem 'carrierwave'
 
 gem 'dogecoin_client'
