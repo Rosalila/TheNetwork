@@ -35,10 +35,10 @@
   <div class="field">
     <label class="col-sm-2 col-sm-2 control-label"><%= f.label :license_id %></label>
     <div class="col-sm-10">
-    <select class="form-control" id="engine_license_id">
-      <%License.all.each do |license|%>
-        <option value="<%=license.id%>"><%=license.name%></option>
-      <%end%>
+      <select class="form-control" id="engine_license_id" name="engine[license_id]">
+        <%License.all.each do |license|%>
+          <option value="<%=license.id%>"><%=license.name%></option>
+        <%end%>
     </select>
     </div>
   </div>
