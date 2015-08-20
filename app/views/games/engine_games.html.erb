@@ -67,8 +67,7 @@
                   <% @games.each do |game| %>
                     <div class="col-lg-4 col-md-4 col-sm-4 mb">
                       <div class="content-panel pn">
-                        <div id="blog-bg">
-                          
+                        <div id="blog-bg" style="background: url('<%=game.image%>') no-repeat scroll center center / cover transparent;">
                           <div class="blog-title"><%= game.name %></div>
                         </div>
                         <div class="blog-text">
