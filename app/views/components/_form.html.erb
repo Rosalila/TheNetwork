@@ -35,7 +35,22 @@
   <div class="field">
     <label class="col-sm-2 col-sm-2 control-label"><%= f.label :license_id %></label>
     <div class="col-sm-10">
-      <%= f.text_field :license_id, :class => "form-control" %><br>
+      <select class="form-control" id="component_license_id" name="component[license_id]">
+        <%License.all.each do |license|%>
+          <option value="<%=license.id%>"><%=license.name%></option>
+        <%end%>
+    </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="col-sm-2 col-sm-2 control-label"><%= f.label :engine_id %></label>
+    <div class="col-sm-10">
+      <select class="form-control" id="component_engine_id" name="component[engine_id]">
+        <%Engine.all.each do |engine|%>
+          <option value="<%=engine.id%>"><%=engine.name%></option>
+        <%end%>
+    </select>
     </div>
   </div>
 
