@@ -35,7 +35,7 @@ class ComponentsController < ApplicationController
     @component = Component.new(component_params)
 
     @component.image = params[:image]
-  #	@component.finish = false
+  	@component.finish = false
 
     respond_to do |format|
       if @component.save
